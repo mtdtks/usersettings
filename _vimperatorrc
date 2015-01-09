@@ -1,0 +1,112 @@
+"3.8.2 (created: 2014/02/13 23:52:43)
+
+"ソース設定してるがしなくて良いのでは
+"source! "C:\\Users\\matsuoka\\_vimperatorrc.local"
+
+"エディターの設定
+"C:に配置すること
+set editor='c:\\Sublime_Text_Build_3065\\sublime_text.exe -f'
+
+"Hintmodeをabcで
+set hintchars=abcdefghijklmnopqrstuvwxyz
+
+"検索で大文字と小文字を区別しない
+set ignorecase
+
+"vim: set ft=vimperator:
+
+"コマンドモード時IMEオフ
+style -name commandline-ime chrome://* #liberator-commandline-command input {ime-mode: inactive;}
+
+"helpを別タブに表示
+set newtab=all
+
+"============================
+"Plugins
+"============================
+
+"smoziee-plugin
+let g:smooziee_scroll_amount="300"
+let g:smooziee_scroll_interval="20"
+
+"たぶんcaret-hintの設定
+let g:hints_for_embedded_mode="e"
+
+
+
+"============================
+"キーバインド
+"============================
+" key mappings
+" Windows環境のCtrl+cでコピーを殺すのを回避
+
+" map <C-c> Y
+" noremap <C-a> <Insert><C-a><Insert>
+
+" Windows風なアレ
+" <S-Esc>で一時的に無効にして戻す
+" Ctrl+a (全選択)
+" noremap <C-a> <C-v><C-a>
+" inoremap <C-a> <C-v><C-a>
+" cnoremap <C-a> <C-v><C-a>
+" Ctrl+c (コピー)
+" noremap <C-c> <S-Esc><C-c><S-Esc>
+" inoremap <C-c> <S-F10>a
+" cnoremap <C-c> <S-Esc><C-c><S-Esc>
+" Ctrl+x (カット)
+" noremap <C-x> <S-Esc><C-x><S-Esc>
+" inoremap <C-x> <S-Esc><C-x><S-Esc>
+" cnoremap <C-x> <S-Esc><C-x><S-Esc>
+" Ctrl+v (ペースト)
+" noremap <C-v> <S-Esc><C-v><S-Esc>
+" inoremap <C-v> <C-v>
+" cnoremap <C-v> <S-Esc><C-v><S-Esc>
+" Ctrl+z (アンドゥ)
+" noremap <C-z> <S-Esc><C-z><S-Esc>
+" inoremap <C-z> <S-Esc><C-z><S-Esc>
+" cnoremap <C-z> <S-Esc><C-z><S-Esc>
+
+"左右のタブに切り替え
+map a gt
+map q gT
+
+"テキストボックスへ移動をｇに
+map e gi<C-a>
+
+"rでURLバーへ移動
+map r <C-k>
+
+cmap <C-v> <S-Insert>
+imap <C-v> <S-Insert>
+cmap <C-c> <C-Insert>
+imap <C-c> <C-Insert>
+"c-aですべて選択　動いた！
+imap <C-a> <C-a>
+
+
+"タブのピン留めをトグルする
+"http://qiita.com/t3kot3ko/items/1b032940dbb79e88323e
+javascript <<EOM
+liberator.modules.commands.addUserCommand(["togglepin"], "add pin to current tab",
+function(){
+    var currentTab = gBrowser.mCurrentTab
+    if(currentTab.pinned){
+        gBrowser.unpinTab(currentTab)
+    }
+    else{
+        gBrowser.pinTab(currentTab)
+    }
+});
+EOM
+nnoremap @ :togglepin <CR>
+
+"インサートモードの時，Ctrl+aで全選択になるようにする
+"inoremap <c-a> <S-F10>a
+
+"============================
+" colorscheme
+"============================
+" デフォルトのヒント派手すぎ＞＜
+hi Hint font-family: Arial; font-size: 18px; font-weight: bold; text-shadow: -1px -1px 2px black, 1px -1px 2px black, -1px 1px 2px black, 1px 1px 2px black; color: #E50076; text-transform: uppercase;
+hi HintElem color: black; background-color: #BCC8DB;
+hi HintActive color: black; background-color: #ACAFD2;
