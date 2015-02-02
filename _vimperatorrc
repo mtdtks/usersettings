@@ -8,7 +8,7 @@
 set editor='c:\\Sublime_Text_Build_3065\\sublime_text.exe -f'
 
 "Hintmodeをabcで
-set hintchars=zabcdefghijklmnopqrstuvwxy
+set hintchars=bacdefghijklmnopqrstuvwxyz
 
 "検索で大文字と小文字を区別しない
 set ignorecase
