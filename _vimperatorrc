@@ -8,7 +8,7 @@
 set editor='c:\\Sublime_Text_Build_3065\\sublime_text.exe -f'
 
 "Hintmodeをabcで
-set hintchars=abcdefghijklmnopqrstuvwxyz
+set hintchars=zabcdefghijklmnopqrstuvwxy
 
 "検索で大文字と小文字を区別しない
 set ignorecase
@@ -20,6 +20,7 @@ style -name commandline-ime chrome://* #liberator-commandline-command input {ime
 
 "helpを別タブに表示
 set newtab=all
+
 
 "============================
 "Plugins
