@@ -21,6 +21,9 @@ style -name commandline-ime chrome://* #liberator-commandline-command input {ime
 "helpを別タブに表示
 set newtab=all
 
+"はてなブックマーク機能をオン
+javascript if (typeof hBookmark != 'undefined') liberator.loadScript('chrome://hatenabookmark/content/vimperator/plugin/hatenabookmark.js', {__proto__: this});
+
 
 "============================
 "Plugins
