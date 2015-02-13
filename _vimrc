@@ -1,3 +1,14 @@
+
+"==================
+"Global_Settings
+"==================
+
+"yankをクリップボードへ保存する
+" GUI版vimエディタで、この機能を有効にするなら、この設定を追加する。
+":set guioptions+=a
+" GUI版でない場合は、こちらの設定を追加する。
+:set clipboard+=autoselect
+
 "==================
 "NeoBundle
 "==================
@@ -18,9 +29,57 @@ NeoBundle 'Shougo/neosnippet.vim'
 
 filetype plugin indent on
 
+"==================
+"vimproc
+"==================
 
 
+NeoBundle 'Shougo/vimproc', {
+  \ 'build' : {
+  \     'windows' : 'make -f make_mingw32.mak',
+  \     'cygwin' : 'make -f make_cygwin.mak',
+  \     'mac' : 'make -f make_mac.mak',
+  \     'unix' : 'make -f make_unix.mak',
+  \    },
+  \ }
 
+"==================
+"neocomplete
+"==================
+if has('lua')
+  NeoBundleLazy 'Shougo/neocomplete.vim', {
+    \ 'depends' : 'Shougo/vimproc',
+    \ 'autoload' : { 'insert' : 1,}
+    \ }
+endif
+
+" neocomplete {{{
+let g:neocomplete#enable_at_startup               = 1
+let g:neocomplete#auto_completion_start_length    = 3
+let g:neocomplete#enable_ignore_case              = 1
+let g:neocomplete#enable_smart_case               = 1
+let g:neocomplete#enable_camel_case               = 1
+let g:neocomplete#use_vimproc                     = 1
+let g:neocomplete#sources#buffer#cache_limit_size = 1000000
+let g:neocomplete#sources#tags#cache_limit_size   = 30000000
+let g:neocomplete#enable_fuzzy_completion         = 1
+let g:neocomplete#lock_buffer_name_pattern        = '\*ku\*'
+
+
+"==================
+"yankaround.vim
+"==================
+
+"NeoBundle 'LeafCage/yankround.vim'
+
+" yankround.vim {{{
+"nmap p <Plug>(yankround-p)
+"nmap P <Plug>(yankround-P)
+"nmap <C-p> <Plug>(yankround-prev)
+"nmap <C-n> <Plug>(yankround-next)
+"let g:yankround_max_history = 100
+"nnoremap <Leader><C-p> :<C-u>Unite yankround<CR>
+"}}}
 
 "==================
 "keymap
