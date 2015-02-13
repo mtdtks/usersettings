@@ -28,3 +28,11 @@ set showmatch
 set statusline=%<%F%h%m%r\ [%{&ff}]\ (%{strftime(\"%H:%M\ %d/%m/%Y\",getftime(expand(\"%:p\")))})%=%l,%c%V\ %P
 set visualbell
 " vim: set ft=vim :
+
+"==================
+"mysettings
+"==================
+
+"s”Ô†•\Ž¦
+set number
+
