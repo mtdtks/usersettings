@@ -2,4 +2,5 @@
 	email = lobotomyplease@gmail.com
 	name = TakashiMatsuda
 [core]
-	editor = 'c:/vim/vim.exe' -c 'set fenc=utf-8'
+
+	editor = "'C:/vim/vim.exe' -c 'set fenc=utf-8'"
