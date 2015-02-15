@@ -1,4 +1,3 @@
-
 "==================
 "Global_Settings
 "==================
@@ -7,8 +6,8 @@
 " GUI版vimエディタで、この機能を有効にするなら、この設定を追加する。
 ":set guioptions+=a
 " GUI版でない場合は、こちらの設定を追加する。
-:set clipboard+=autoselect
-
+":set clipboard+=autoselect
+set clipboard+=unnamedplus,unnamed
 "==================
 "NeoBundle
 "==================
@@ -26,22 +25,17 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 # 以下は必要に応じて追加
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neosnippet.vim'
+# ver.4.1からは以下を追加する
+NeoBundle 'Shougo/neosnippet-snippets'
 
-filetype plugin indent on
 
 "==================
 "vimproc
 "==================
+NeoBundle 'Shougo/vimproc'
 
-
-NeoBundle 'Shougo/vimproc', {
-  \ 'build' : {
-  \     'windows' : 'make -f make_mingw32.mak',
-  \     'cygwin' : 'make -f make_cygwin.mak',
-  \     'mac' : 'make -f make_mac.mak',
-  \     'unix' : 'make -f make_unix.mak',
-  \    },
-  \ }
+"kaoriya_vim\tools\plugins\vimroc\vimproc_win32.dllを
+".vim/bundle/vimproc/aoutoload/にコピー
 
 "==================
 "neocomplete
@@ -82,14 +76,34 @@ let g:neocomplete#lock_buffer_name_pattern        = '\*ku\*'
 "}}}
 
 "==================
-"keymap
+"NERDTree
 "==================
+" ファイルをtree表示してくれる
+NeoBundle 'scrooloose/nerdtree'
+":NERDTreeでツリー起動
+":NERDTreeToggleでトグル
 
+"==================
+"vim_surround
+"==================
+NeoBundle 'tpope/vim-surround'
 
-nmap <C-End> <C-End>
-vmap <C-End> <C-End>
-nmap <C-Home> <C-Home>
-vmap <C-Home> <C-Home>
+"==================
+"Tern for Vim
+"==================
+NeoBundle 'marijnh/tern_for_vim', {
+\ 'build': {
+\   'others': 'npm install'
+\   }
+\}
+"===
+"コマンド一覧
+"TernDef: Jump to the definition of the thing under the cursor.
+"TernDoc: Look up the documentation of something.
+"TernType: Find the type of the thing under the cursor.
+"TernRefs: Show all references to the variable or property under the cursor.
+"TernRename: Rename the variable under the cursor.
+"===
 
 "==================
 "view_settings
@@ -107,7 +121,34 @@ set visualbell
 
 "行番号の表示
 set number
+"==================
+"font_settings
+"==================
+set guifont=Font\ Consolas:h12:cANSI
+set guifontwide=MS_Gothic:h12
+"==================
+"Color_Scheme
+"==================
 
+NeoBundle 'w0ng/vim-hybrid.vim'
+colorscheme hybrid
+syntax on
+NeoBundle 'nanotech/jellybeans.vim'
+
+" colorscheme jellybeans
+
+
+"  set t_Co=256
+"  set t_Sf=[3%dm
+"  set t_Sb=[4%dm
+"elseif &term =~ "xterm-color"
+"  set t_Co=8
+"  set t_Sf=[3%dm
+"  set t_Sb=[4%dm
+"endif
+"
+"syntax enable
+"hi PmenuSel cterm=reverse ctermfg=33 ctermbg=222 gui=reverse guifg=#3399ff guibg=#f0e68c
 
 "==================
 "syntax
@@ -142,6 +183,14 @@ if has("multi_lang")
 language C
 endif
 
+"==================
+"keymap
+"==================
+
+nmap <C-End> <C-End>
+vmap <C-End> <C-End>
+nmap <C-Home> <C-Home>
+vmap <C-Home> <C-Home>
 
 "====================
 "Helpを日本語に

@@ -1,0 +1,10 @@
+jellybeans.vim
+neobundle.vim
+neocomplete.vim
+neosnippet-snippets
+neosnippet.vim
+nerdtree
+tern_for_vim
+unite.vim
+vim-surround
+vimproc
