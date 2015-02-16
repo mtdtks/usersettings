@@ -1,6 +1,10 @@
 "==================
 "Global_Settings
 "==================
+"undo,swap,backupファイルを1か所に保存する
+:set undodir=~/.vim/tmp
+:set directory=~/.vim/tmp
+:set backupdir=~/.vim/tmp
 
 "yankをクリップボードへ保存する
 " GUI版vimエディタで、この機能を有効にするなら、この設定を追加する。
@@ -85,6 +89,8 @@ let g:neocomplete#lock_buffer_name_pattern        = '\*ku\*'
 "NERDTree
 "==================
 " ファイルをtree表示してくれる
+
+"- 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/nerdtree'
 ":NERDTreeでツリー起動
 ":NERDTreeToggleでトグル
@@ -123,8 +129,8 @@ NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'tomasr/molokai'
 " mustang
 NeoBundle 'croaker/mustang-vim'
-set t_Co=256
-colorscheme darkblue
+"set t_Co=256
+colorscheme slate
 syntax on
 
 "  set t_Co=256
