@@ -1,10 +1,15 @@
 jellybeans.vim
+molokai
+mustang-vim
 neobundle.vim
 neocomplete.vim
+neosnippet
 neosnippet-snippets
-neosnippet.vim
 nerdtree
 tern_for_vim
+unite-colorscheme
 unite.vim
-vim-surround
+vim-colors-solarized
+vim-hybrid.vim
+vim-surround.vim
 vimproc

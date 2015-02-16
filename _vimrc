@@ -7,10 +7,16 @@
 ":set guioptions+=a
 " GUI版でない場合は、こちらの設定を追加する。
 ":set clipboard+=autoselect
+"cuiでこちらが確実
 set clipboard+=unnamedplus,unnamed
-"==================
-"NeoBundle
-"==================
+
+"---------------------------
+" Start Neobundle Settings.
+"---------------------------
+" Required:
+call neobundle#begin(expand('~/.vim/bundle/'))
+
+
 # 以下を追記
 set nocompatible
 filetype plugin indent off
@@ -24,11 +30,11 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 # 以下は必要に応じて追加
 NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/neosnippet.vim'
+NeoBundle 'Shougo/neosnippet'
 # ver.4.1からは以下を追加する
 NeoBundle 'Shougo/neosnippet-snippets'
-
-
+NeoBundle 'ujihisa/unite-colorscheme'
+":Unite colorscheme -auto-preview
 "==================
 "vimproc
 "==================
@@ -86,7 +92,7 @@ NeoBundle 'scrooloose/nerdtree'
 "==================
 "vim_surround
 "==================
-NeoBundle 'tpope/vim-surround'
+NeoBundle 'tpope/vim-surround.vim'
 
 "==================
 "Tern for Vim
@@ -104,6 +110,47 @@ NeoBundle 'marijnh/tern_for_vim', {
 "TernRefs: Show all references to the variable or property under the cursor.
 "TernRename: Rename the variable under the cursor.
 "===
+"==================
+"Color_Scheme
+"==================
+"hybrid
+NeoBundle 'w0ng/vim-hybrid.vim'
+" solarized
+NeoBundle 'altercation/vim-colors-solarized'
+" jellybeans
+NeoBundle 'nanotech/jellybeans.vim'
+" molokai
+NeoBundle 'tomasr/molokai'
+" mustang
+NeoBundle 'croaker/mustang-vim'
+set t_Co=256
+colorscheme darkblue
+syntax on
+
+"  set t_Co=256
+"  set t_Sf=[3%dm
+"  set t_Sb=[4%dm
+"elseif &term =~ "xterm-color"
+"  set t_Co=8
+"  set t_Sf=[3%dm
+"  set t_Sb=[4%dm
+"endif
+"
+"syntax enable
+"hi PmenuSel cterm=reverse ctermfg=33 ctermbg=222 gui=reverse guifg=#3399ff guibg=#f0e68c
+
+call neobundle#end()
+
+" Required:
+filetype plugin indent on
+
+" 未インストールのプラグインがある場合、インストールするかどうかを尋ねてくれるようにする設定
+" 毎回聞かれると邪魔な場合もあるので、この設定は任意です。
+NeoBundleCheck
+
+"-------------------------
+" End Neobundle Settings.
+"-------------------------
 
 "==================
 "view_settings
@@ -121,34 +168,17 @@ set visualbell
 
 "行番号の表示
 set number
+"インクメンタルサーチ
+set incsearch
+"コマンドライン補完
+set wildmenu=list:full
+
 "==================
 "font_settings
 "==================
-set guifont=Font\ Consolas:h12:cANSI
-set guifontwide=MS_Gothic:h12
-"==================
-"Color_Scheme
-"==================
+set guifont=Ricty Diminished Discord:h20
+set guifontwide=Ricty Diminished Discord:h20
 
-NeoBundle 'w0ng/vim-hybrid.vim'
-colorscheme hybrid
-syntax on
-NeoBundle 'nanotech/jellybeans.vim'
-
-" colorscheme jellybeans
-
-
-"  set t_Co=256
-"  set t_Sf=[3%dm
-"  set t_Sb=[4%dm
-"elseif &term =~ "xterm-color"
-"  set t_Co=8
-"  set t_Sf=[3%dm
-"  set t_Sb=[4%dm
-"endif
-"
-"syntax enable
-"hi PmenuSel cterm=reverse ctermfg=33 ctermbg=222 gui=reverse guifg=#3399ff guibg=#f0e68c
 
 "==================
 "syntax
