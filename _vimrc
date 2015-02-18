@@ -6,6 +6,10 @@
 :set directory=~/.vim/tmp
 :set backupdir=~/.vim/tmp
 
+
+language messages ja_jp.UTF-8
+:set encoding=utf-8
+
 "yankをクリップボードへ保存する
 " GUI版vimエディタで、この機能を有効にするなら、この設定を追加する。
 ":set guioptions+=a
@@ -21,7 +25,7 @@ set clipboard+=unnamedplus,unnamed
 call neobundle#begin(expand('~/.vim/bundle/'))
 
 
-# 以下を追記
+" 以下を追記
 set nocompatible
 filetype plugin indent off
 
@@ -32,17 +36,20 @@ endif
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-# 以下は必要に応じて追加
+" 以下は必要に応じて追加
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neosnippet'
-# ver.4.1からは以下を追加する
+" ver.4.1からは以下を追加する
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'ujihisa/unite-colorscheme'
+"colorscheme test
 ":Unite colorscheme -auto-preview
 "==================
 "vimproc
 "==================
-NeoBundle 'Shougo/vimproc'
+"- Shougo/vimproc
+"NeoBundle 'Shougo/vimproc'
+
 
 "kaoriya_vim\tools\plugins\vimroc\vimproc_win32.dllを
 ".vim/bundle/vimproc/aoutoload/にコピー
@@ -103,11 +110,14 @@ NeoBundle 'tpope/vim-surround.vim'
 "==================
 "Tern for Vim
 "==================
-NeoBundle 'marijnh/tern_for_vim', {
-\ 'build': {
-\   'others': 'npm install'
-\   }
-\}
+
+"- marijnh/tern_for_vim
+"NeoBundle 'marijnh/tern_for_vim', {
+"\ 'build': {
+"\   'others': 'npm install'
+"\   }
+"\}
+
 "===
 "コマンド一覧
 "TernDef: Jump to the definition of the thing under the cursor.
@@ -116,6 +126,25 @@ NeoBundle 'marijnh/tern_for_vim', {
 "TernRefs: Show all references to the variable or property under the cursor.
 "TernRename: Rename the variable under the cursor.
 "===
+
+"==================
+"syntastic
+"==================
+NeoBundle 'scrooloose/syntastic'
+"javascriptとrubyで有効にする
+let g:syntastic_mode_map = { 'mode': 'passive',
+\ 'active_filetypes': ['ruby', 'javascript'],
+\ 'passive_filetypes': [] }
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
 "==================
 "Color_Scheme
 "==================
@@ -177,13 +206,13 @@ set number
 "インクメンタルサーチ
 set incsearch
 "コマンドライン補完
-set wildmenu=list:full
+"set wildmenu=list:full -error
 
 "==================
 "font_settings
 "==================
-set guifont=Ricty Diminished Discord:h20
-set guifontwide=Ricty Diminished Discord:h20
+"set guifont=Ricty Discord:h20 -error
+"set guifontwide=Ricty Discord:h20 -error
 
 
 "==================
@@ -231,6 +260,7 @@ vmap <C-Home> <C-Home>
 "====================
 "Helpを日本語に
 "====================
-helptags ~/.vim/doc
-set helplang=ja,en
+"helptags ~/.vim/doc -error
+"set helplang=ja,en -error
+"たぶんこれいらない
 

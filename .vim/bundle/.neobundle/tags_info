@@ -6,7 +6,7 @@ neocomplete.vim
 neosnippet
 neosnippet-snippets
 nerdtree
-tern_for_vim
+syntastic
 unite-colorscheme
 unite.vim
 vim-colors-solarized
