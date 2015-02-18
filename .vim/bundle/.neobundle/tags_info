@@ -10,6 +10,7 @@ syntastic
 unite-colorscheme
 unite.vim
 vim-colors-solarized
+vim-hybrid
 vim-hybrid.vim
 vim-surround.vim
 vimproc

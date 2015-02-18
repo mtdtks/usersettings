@@ -42,6 +42,7 @@ NeoBundle 'Shougo/neosnippet'
 " ver.4.1からは以下を追加する
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'ujihisa/unite-colorscheme'
+NeoBundle 'w0ng/vim-hybrid'
 "colorscheme test
 ":Unite colorscheme -auto-preview
 "==================
@@ -130,11 +131,14 @@ NeoBundle 'tpope/vim-surround.vim'
 "==================
 "syntastic
 "==================
-NeoBundle 'scrooloose/syntastic'
-"javascriptとrubyで有効にする
-let g:syntastic_mode_map = { 'mode': 'passive',
-\ 'active_filetypes': ['ruby', 'javascript'],
-\ 'passive_filetypes': [] }
+NeoBundle 'scrooloose/syntastic.git'
+":helptagsを実行する
+"consoleで npm install -g jshint
+let g:syntastic_mode_map = {
+\ "mode" : "active",
+\ "active_filetypes" : ["javascript", "json"],
+\}
+
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
