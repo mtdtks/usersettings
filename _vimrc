@@ -42,9 +42,9 @@ NeoBundle 'Shougo/neosnippet'
 " ver.4.1からは以下を追加する
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'ujihisa/unite-colorscheme'
-NeoBundle 'w0ng/vim-hybrid'
 "colorscheme test
 ":Unite colorscheme -auto-preview
+
 "==================
 "vimproc
 "==================
@@ -111,7 +111,7 @@ NeoBundle 'tpope/vim-surround.vim'
 "==================
 "Tern for Vim
 "==================
-
+"重くて使い物にならん
 "- marijnh/tern_for_vim
 "NeoBundle 'marijnh/tern_for_vim', {
 "\ 'build': {
@@ -162,6 +162,9 @@ NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'tomasr/molokai'
 " mustang
 NeoBundle 'croaker/mustang-vim'
+" vim-hybrid
+NeoBundle 'w0ng/vim-hybrid'
+
 "set t_Co=256
 colorscheme slate
 syntax on
