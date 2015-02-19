@@ -166,7 +166,7 @@ NeoBundle 'croaker/mustang-vim'
 NeoBundle 'w0ng/vim-hybrid'
 
 "set t_Co=256
-colorscheme slate
+colorscheme ron
 syntax on
 
 "  set t_Co=256
