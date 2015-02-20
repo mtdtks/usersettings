@@ -5,7 +5,9 @@
 
 "エディターの設定
 "C:に配置すること
-set editor='c:\\Sublime_Text_Build_3065\\sublime_text.exe -f'
+"set editor='c:\\Sublime_Text_Build_3065\\sublime_text.exe -f'
+"vim
+set editor='c:\\vim\\vim.exe -f'
 
 "Hintmodeをabcで
 set hintchars=bacdefghijklmnopqrstuvwxyz
