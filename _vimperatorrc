@@ -136,6 +136,13 @@ imap <C-c> <C-Insert>
 "c-aですべて選択　動いた！
 imap <C-a> <C-a>
 
+"InsertModeでvimキーバインド
+imap <C-h> <LEFT>
+imap <C-j> <DOWN>
+imap <C-k> <UP>
+imap <C-l> <RIGHT>
+imap <C-0> <C-e>
+
 
 "タブのピン留めをトグルする
 "http://qiita.com/t3kot3ko/items/1b032940dbb79e88323e
