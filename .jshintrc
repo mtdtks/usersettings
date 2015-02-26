@@ -1,13 +1,16 @@
 {
     "strict"    : false,
     "indent"    : 2,
-    "camelcase" : true,
+    "camelcase" : false,
     "unused"    : true,
     "eqeqeq"    : true,
     "undef"     : true,
     "browser"   : true,
     "jquery"    : true,
     "devel"     : true,
-    "immed"     : false
+    "immed"     : false,
+    "undef"     : false,
+    "unused"    : false,
+    "eqeqeq"    : false
 }
    
