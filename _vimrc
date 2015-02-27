@@ -106,7 +106,7 @@ NeoBundle 'scrooloose/nerdtree'
 "==================
 "vim_surround
 "==================
-NeoBundle 'tpope/vim-surround.vim'
+NeoBundle 'tpope/vim-surround'
 
 "==================
 "Tern for Vim

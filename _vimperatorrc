@@ -5,6 +5,7 @@
 
 "エディターの設定
 "C:に配置すること
+"SublimeText3
 "set editor='c:\\Sublime_Text_Build_3065\\sublime_text.exe -f'
 "vim
 set editor='c:\\vim\\vim.exe -f'
@@ -134,6 +135,13 @@ cmap <C-c> <C-Insert>
 imap <C-c> <C-Insert>
 "c-aですべて選択　動いた！
 imap <C-a> <C-a>
+
+"InsertModeでvimキーバインド
+imap <C-h> <LEFT>
+imap <C-j> <DOWN>
+imap <C-k> <UP>
+imap <C-l> <RIGHT>
+imap <C-0> <C-e>
 
 
 "タブのピン留めをトグルする
