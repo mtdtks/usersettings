@@ -135,6 +135,8 @@ NeoBundle 'scrooloose/syntastic.git'
 ":helptagsを実行する
 "consoleで npm install -g jshint
 let g:syntastic_mode_map = {
+let g:syntastic_javascript_checkers = [‘jshint’]
+
 \ "mode" : "active",
 \ "active_filetypes" : ["javascript", "json"],
 \}
