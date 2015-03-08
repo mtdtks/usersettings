@@ -25,7 +25,7 @@ set clipboard+=unnamedplus,unnamed
 call neobundle#begin(expand('~/.vim/bundle/'))
 
 
-" 以下を追記
+"neobundle setup
 set nocompatible
 filetype plugin indent off
 
