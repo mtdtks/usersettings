@@ -87,8 +87,9 @@ let g:hints_for_embedded_mode="e"
 "============================
 "キーバインド
 "============================
-" key mappings
-" Windows環境のCtrl+cでコピーを殺すのを回避
+" dタブを閉じるをddに変更
+"動きおかしいので却下
+"map dd d
 
 " VisualモードでC-gで選択しているテキストでGoogle検索
 vmap <silent> <C-g> y<Esc><Esc>P
@@ -116,7 +117,8 @@ imap <C-j> <DOWN>
 imap <C-k> <UP>
 imap <C-l> <RIGHT>
 imap <C-0> <C-e>
-
+imap <C-w> <C-RIGHT>
+imap <C-b> <C-LEFT>
 
 "タブのピン留めをトグルする
 "http://qiita.com/t3kot3ko/items/1b032940dbb79e88323e
@@ -138,13 +140,13 @@ nnoremap @ :togglepin <CR>
 "inoremap <c-a> <S-F10>a
 
 " タブ順序変更
-nnoremap <C-t> :tabmove! -1<CR>
-nnoremap <C-Shift-t> :tabmove! +1<CR>
+nnoremap <C-h> :tabmove! -1<CR>
+nnoremap <C-l> :tabmove! +1<CR>
 
 "============================
 " colorscheme
 "============================
-" デフォルトのヒント派手すぎ＞＜
+" 赤紫のヒント・モード
 hi Hint font-family: Arial; font-size: 18px; font-weight: bold; text-shadow: -1px -1px 2px black, 1px -1px 2px black, -1px 1px 2px black, 1px 1px 2px black; color: #E50076; text-transform: uppercase;
 hi HintElem color: black; background-color: #BCC8DB;
 hi HintActive color: black; background-color: #ACAFD2;
