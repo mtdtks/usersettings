@@ -1,13 +1,24 @@
 #UserSettings
 this repository is my user settings for
 
+##git
+* .gitconfig
+* .gitignore
+
+##vim
 * vimrc
 * vimperatorrc
-* .gitconfig
-* vimperator/plugin/
-* .vim/
-* .bashrc
+* .vim/bundle/.neobundle/
+* .vim/bundke/neobundle.vim/
+* .vim/tmp/.gitkeep
 
+##vimperator
+* vimperatorrc
+* vimperator/plugin/
+
+##tools
+* .bashrc
+* .jshintrc
 
 * firest set up
 neobundle into .vim

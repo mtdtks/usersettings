@@ -90,32 +90,6 @@ let g:hints_for_embedded_mode="e"
 " key mappings
 " Windows環境のCtrl+cでコピーを殺すのを回避
 
-" map <C-c> Y
-" noremap <C-a> <Insert><C-a><Insert>
-
-" Windows風なアレ
-" <S-Esc>で一時的に無効にして戻す
-" Ctrl+a (全選択)
-" noremap <C-a> <C-v><C-a>
-" inoremap <C-a> <C-v><C-a>
-" cnoremap <C-a> <C-v><C-a>
-" Ctrl+c (コピー)
-" noremap <C-c> <S-Esc><C-c><S-Esc>
-" inoremap <C-c> <S-F10>a
-" cnoremap <C-c> <S-Esc><C-c><S-Esc>
-" Ctrl+x (カット)
-" noremap <C-x> <S-Esc><C-x><S-Esc>
-" inoremap <C-x> <S-Esc><C-x><S-Esc>
-" cnoremap <C-x> <S-Esc><C-x><S-Esc>
-" Ctrl+v (ペースト)
-" noremap <C-v> <S-Esc><C-v><S-Esc>
-" inoremap <C-v> <C-v>
-" cnoremap <C-v> <S-Esc><C-v><S-Esc>
-" Ctrl+z (アンドゥ)
-" noremap <C-z> <S-Esc><C-z><S-Esc>
-" inoremap <C-z> <S-Esc><C-z><S-Esc>
-" cnoremap <C-z> <S-Esc><C-z><S-Esc>
-
 " VisualモードでC-gで選択しているテキストでGoogle検索
 vmap <silent> <C-g> y<Esc><Esc>P
 
@@ -162,6 +136,10 @@ nnoremap @ :togglepin <CR>
 
 "インサートモードの時，Ctrl+aで全選択になるようにする
 "inoremap <c-a> <S-F10>a
+
+" タブ順序変更
+nnoremap <C-t> :tabmove! -1<CR>
+nnoremap <C-Shift-t> :tabmove! +1<CR>
 
 "============================
 " colorscheme
