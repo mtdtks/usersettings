@@ -3,6 +3,11 @@
 "ソース設定してるがしなくて良いのでは
 "source! "C:\\Users\\matsuoka\\_vimperatorrc.local"
 
+"============================
+"General
+"============================
+
+
 "エディターの設定
 "C:に配置すること
 "SublimeText3
@@ -11,7 +16,9 @@
 set editor='c:\\vim\\vim.exe -f'
 
 "Hintmodeをabcで
-set hintchars=bacdefghijklmnopqrstuvwxyz
+"set hintchars=bacdefghijklmnopqrstuvwxyz
+"2列で
+set hintchars=adjlskghrueiwoqpty
 
 "検索で大文字と小文字を区別しない
 set ignorecase
@@ -98,11 +105,11 @@ vmap <silent> <C-g> y<Esc><Esc>P
 map a gt
 map q gT
 
-"テキストボックスへ移動をｇに
+"テキストボックスへ移動をeに
 map e gi<C-a>
 
 "rでURLバーへ移動
-map r <C-k>
+map r <A-d>
 
 cmap <C-v> <S-Insert>
 imap <C-v> <S-Insert>
@@ -135,9 +142,6 @@ function(){
 });
 EOM
 nnoremap @ :togglepin <CR>
-
-"インサートモードの時，Ctrl+aで全選択になるようにする
-"inoremap <c-a> <S-F10>a
 
 " タブ順序変更
 nnoremap <C-h> :tabmove! -1<CR>
