@@ -13,7 +13,10 @@
 "SublimeText3
 "set editor='c:\\Sublime_Text_Build_3065\\sublime_text.exe -f'
 "vim
-set editor='c:\\vim\\vim.exe -f'
+"set editor='c:\\vim\\vim.exe -f'
+"gvim
+set editor='c:\\vim\\gvim.exe -f'
+
 
 "Hintmodeをabcで
 "set hintchars=bacdefghijklmnopqrstuvwxyz
