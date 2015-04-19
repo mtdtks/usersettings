@@ -21,19 +21,23 @@ set clipboard+=unnamedplus,unnamed
 "---------------------------
 " Start Neobundle Settings.
 "---------------------------
+" Note: Skip initialization for vim-tiny or vim-small.
+if !1 | finish | endif
+
+if has('vim_starting')
+  if &compatible
+    set nocompatible               " Be iMproved
+  endif
+
+  " Required:
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+
 " Required:
 call neobundle#begin(expand('~/.vim/bundle/'))
 
-
-"neobundle setup
-set nocompatible
-filetype plugin indent off
-
-if has('vim_starting')
-  set runtimepath+=~/.vim/bundle/neobundle.vim
-  call neobundle#rc(expand('~/.vim/bundle'))
-endif
-
+" Let NeoBundle manage NeoBundle
+" Required:
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " 以下は必要に応じて追加
@@ -134,12 +138,22 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'scrooloose/syntastic.git'
 ":helptagsを実行する
 "consoleで npm install -g jshint
+let g:syntastic_check_on_open=0
+let g:syntastic_check_on_save=1
+let g:syntastic_auto_loc_list=1
+let g:syntastic_loc_list_height=6
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_mode_map = {
-let g:syntastic_javascript_checkers = [‘jshint’]
-
-\ "mode" : "active",
-\ "active_filetypes" : ["javascript", "json"],
-\}
+      \ 'mode': 'active',
+      \ 'active_filetypes': ['javascript'],
+      \ 'passive_filetypes': []
+      \ }
+let g:syntastic_enable_signs=1
+let g:syntastic_error_symbol='✗'
+let g:syntastic_warning_symbol='⚠'
 
 
 set statusline+=%#warningmsg#
