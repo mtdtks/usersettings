@@ -195,15 +195,19 @@ NeoBundle 'tomasr/molokai'
 NeoBundle 'croaker/mustang-vim'
 " vim-hybrid
 NeoBundle 'w0ng/vim-hybrid'
+"vim-tomorrow-theme
+NeoBundle 'chriskempson/vim-tomorrow-theme'
 
 "set t_Co=256
-colorscheme ron
 syntax on
+set background=dark
+colorscheme desert
+
 
 "  set t_Co=256
 "  set t_Sf=[3%dm
 "  set t_Sb=[4%dm
-"elseif &term =~ "xterm-color"
+"elseif &term =~ xterm-color"
 "  set t_Co=8
 "  set t_Sf=[3%dm
 "  set t_Sb=[4%dm
