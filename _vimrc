@@ -16,7 +16,7 @@ language messages ja_jp.UTF-8
 " GUI版でない場合は、こちらの設定を追加する。
 ":set clipboard+=autoselect
 "cuiでこちらが確実
-set clipboard+=unnamedplus,unnamedi
+set clipboard+=unnamedplus,unnamed
 
 
 "======================================
@@ -143,15 +143,12 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'scrooloose/syntastic.git'
 ":helptagsを実行する
 "consoleで npm install -g jshint
-let g:syntastic_mode_map = { 'mode': 'active',
-    \ 'active_filetypes': [],
-    \ 'passive_filetypes': ['html'] }
-let g:syntastic_javascript_checkers = [‘jshint’]
 
-"\ "mode" : "active",
-"\ "active_filetypes" : ["javascript", "json"],
-"\}
-=======
+"htmlの設定=無効
+"let g:syntastic_mode_map = { 'mode': 'active',
+""    \ 'active_filetypes': [],
+""    \ 'passive_filetypes': ['html'] }
+
 let g:syntastic_check_on_open=0
 let g:syntastic_check_on_save=1
 let g:syntastic_auto_loc_list=1
@@ -168,7 +165,6 @@ let g:syntastic_mode_map = {
 let g:syntastic_enable_signs=1
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
-
 
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
