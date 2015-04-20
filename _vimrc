@@ -16,11 +16,15 @@ language messages ja_jp.UTF-8
 " GUI版でない場合は、こちらの設定を追加する。
 ":set clipboard+=autoselect
 "cuiでこちらが確実
-set clipboard+=unnamedplus,unnamed
+set clipboard+=unnamedplus,unnamedi
 
-"---------------------------
+
+"======================================
+"Plugins
+"======================================
+"--------------------------
 " Start Neobundle Settings.
-"---------------------------
+"--------------------------
 " Note: Skip initialization for vim-tiny or vim-small.
 if !1 | finish | endif
 
@@ -49,19 +53,20 @@ NeoBundle 'ujihisa/unite-colorscheme'
 "colorscheme test
 ":Unite colorscheme -auto-preview
 
-"==================
+"-------
 "vimproc
-"==================
+"-------
 "- Shougo/vimproc
+
 "NeoBundle 'Shougo/vimproc'
 
 
 "kaoriya_vim\tools\plugins\vimroc\vimproc_win32.dllを
 ".vim/bundle/vimproc/aoutoload/にコピー
 
-"==================
+"-----------
 "neocomplete
-"==================
+"-----------
 if has('lua')
   NeoBundleLazy 'Shougo/neocomplete.vim', {
     \ 'depends' : 'Shougo/vimproc',
@@ -80,11 +85,11 @@ let g:neocomplete#sources#buffer#cache_limit_size = 1000000
 let g:neocomplete#sources#tags#cache_limit_size   = 30000000
 let g:neocomplete#enable_fuzzy_completion         = 1
 let g:neocomplete#lock_buffer_name_pattern        = '\*ku\*'
+"}}}
 
-
-"==================
+"--------------
 "yankaround.vim
-"==================
+"--------------
 
 "NeoBundle 'LeafCage/yankround.vim'
 
@@ -97,9 +102,9 @@ let g:neocomplete#lock_buffer_name_pattern        = '\*ku\*'
 "nnoremap <Leader><C-p> :<C-u>Unite yankround<CR>
 "}}}
 
-"==================
+"--------
 "NERDTree
-"==================
+"--------
 " ファイルをtree表示してくれる
 
 "- 'scrooloose/nerdtree'
@@ -107,14 +112,14 @@ NeoBundle 'scrooloose/nerdtree'
 ":NERDTreeでツリー起動
 ":NERDTreeToggleでトグル
 
-"==================
+"------------
 "vim_surround
-"==================
+"------------
 NeoBundle 'tpope/vim-surround'
 
-"==================
+"------------
 "Tern for Vim
-"==================
+"------------
 "重くて使い物にならん
 "- marijnh/tern_for_vim
 "NeoBundle 'marijnh/tern_for_vim', {
@@ -132,12 +137,21 @@ NeoBundle 'tpope/vim-surround'
 "TernRename: Rename the variable under the cursor.
 "===
 
-"==================
+"---------
 "syntastic
-"==================
+"---------
 NeoBundle 'scrooloose/syntastic.git'
 ":helptagsを実行する
 "consoleで npm install -g jshint
+let g:syntastic_mode_map = { 'mode': 'active',
+    \ 'active_filetypes': [],
+    \ 'passive_filetypes': ['html'] }
+let g:syntastic_javascript_checkers = [‘jshint’]
+
+"\ "mode" : "active",
+"\ "active_filetypes" : ["javascript", "json"],
+"\}
+=======
 let g:syntastic_check_on_open=0
 let g:syntastic_check_on_save=1
 let g:syntastic_auto_loc_list=1
@@ -164,6 +178,11 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+"-------------
+"lightline.vim
+"-------------
+NeoBundle 'itchyny/lightline.vim'
 
 "==================
 "Color_Scheme
@@ -197,7 +216,6 @@ syntax on
 "syntax enable
 "hi PmenuSel cterm=reverse ctermfg=33 ctermbg=222 gui=reverse guifg=#3399ff guibg=#f0e68c
 
-call neobundle#end()
 
 " Required:
 filetype plugin indent on
@@ -205,7 +223,7 @@ filetype plugin indent on
 " 未インストールのプラグインがある場合、インストールするかどうかを尋ねてくれるようにする設定
 " 毎回聞かれると邪魔な場合もあるので、この設定は任意です。
 NeoBundleCheck
-
+call neobundle#end()
 "-------------------------
 " End Neobundle Settings.
 "-------------------------
