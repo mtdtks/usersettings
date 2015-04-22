@@ -126,7 +126,8 @@ imap <C-h> <LEFT>
 imap <C-j> <DOWN>
 imap <C-k> <UP>
 imap <C-l> <RIGHT>
-imap <C-0> <C-e>
+imap <C-0> <C-HOME>
+imap <C-4> <C-END>
 imap <C-w> <C-RIGHT>
 imap <C-b> <C-LEFT>
 
