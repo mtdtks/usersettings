@@ -126,9 +126,11 @@ imap <C-h> <LEFT>
 imap <C-j> <DOWN>
 imap <C-k> <UP>
 imap <C-l> <RIGHT>
-imap <C-0> <C-e>
 imap <C-w> <C-RIGHT>
 imap <C-b> <C-LEFT>
+imap <C-0> <C-HOME>
+imap <C-4> <C-END>
+
 
 "タブのピン留めをトグルする
 "http://qiita.com/t3kot3ko/items/1b032940dbb79e88323e
@@ -157,7 +159,3 @@ nnoremap <C-l> :tabmove! +1<CR>
 hi Hint font-family: Arial; font-size: 18px; font-weight: bold; text-shadow: -1px -1px 2px black, 1px -1px 2px black, -1px 1px 2px black, 1px 1px 2px black; color: #E50076; text-transform: uppercase;
 hi HintElem color: black; background-color: #BCC8DB;
 hi HintActive color: black; background-color: #ACAFD2;
-
-
-
-"testtsest
