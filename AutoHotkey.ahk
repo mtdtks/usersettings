@@ -4,10 +4,16 @@
 
 ;honten-ssbk settings
 ;write to "%HOME%\AutoHotkey.ahk"
+;Setting fot honten-SSBK
 ;-----
 ;#Include  C:\Users\honten\vim.ahk
 ;#Include  C:\Users\honten\AutoHotkey.ahk
 ;-----
+;Setting fot LUISXIV
+;-----
+;#Include  C:\Users\matsuoka\vim.ahk
+;#Include  C:\Users\matsuoka\AutoHotkey.ahk
+;------
 
 ; 十字キー設定
 #k::send,{Up}
