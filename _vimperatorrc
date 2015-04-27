@@ -159,3 +159,32 @@ nnoremap <C-l> :tabmove! +1<CR>
 hi Hint font-family: Arial; font-size: 18px; font-weight: bold; text-shadow: -1px -1px 2px black, 1px -1px 2px black, -1px 1px 2px black, 1px 1px 2px black; color: #E50076; text-transform: uppercase;
 hi HintElem color: black; background-color: #BCC8DB;
 hi HintActive color: black; background-color: #ACAFD2;
+
+"============================
+" about:config
+"============================
+"bookmarkAllTabskb
+set! keyconfig.main.bookmarkAllTabsKb=!][][
+"key_close
+set! keyconfig.main.key_close=][][
+"key_firebug_focusConsole
+set! keyconfig.main.key_firebug_focusCommandLine=!][][
+"key_gotoHistory
+set! keyconfig.main.key_gotoHistory=!][][
+"key_newNavigatorTab
+set! keyconfig.main.key_newNavigatorTab=!][][
+"key_OpenDownloads
+set! keyconfig.main.key_openDownloads=!][][
+"key_search
+set! keyconfig.main.key_search=!][][
+"key_tm_detachTab
+set! keyconfig.main.key_tm_detachTab=!][][
+"key_tm_dupTab
+set! keyconfig.main.key_tm_dupTab=!][][
+"key_tm_mergeWin
+set! keyconfig.main.key_tm_mergeWin=!][][
+"key_tm_mergeWin
+set! keyconfig.main.key_tm_undoClose=!][][
+"viewBookmarkSidebarKb
+set! keyconfig.main.viewBookmarksSidebarKb=!][][
+
