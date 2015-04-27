@@ -34,6 +34,10 @@ style -name commandline-ime chrome://* #liberator-commandline-command input {ime
 "helpを別タブに表示
 set newtab=all
 
+"!動かない
+" マウスカーソルを邪魔じゃないとこに飛ばす
+"nnoremap <A-z> :mouse move 1800 10000<CR>
+
 
 "============================
 "はてなブックマーク設定
@@ -93,6 +97,9 @@ let g:smooziee_scroll_interval="20"
 "たぶんcaret-hintの設定
 let g:hints_for_embedded_mode="e"
 
+" caret-hint.js
+let g:caret_hint_xpath = '//*' "'//img|//h1|//h2|//h3|//p|//div|//span':
+let g:caret_hint_key = ''
 
 "============================
 "キーバインド
@@ -163,6 +170,10 @@ hi HintActive color: black; background-color: #ACAFD2;
 "============================
 " about:config
 "============================
+
+"---------
+"keyconfig
+"---------
 "bookmarkAllTabskb
 set! keyconfig.main.bookmarkAllTabsKb=!][][
 "key_close
