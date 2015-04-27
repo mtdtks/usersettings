@@ -4,3 +4,6 @@
 [core]
 
 	editor = "'C:/vim/vim.exe' -c 'set fenc=utf-8'"
+
+[alias]
+    tree = log --graph --pretty='format:%C(yellow)%h%Creset %s %Cgreen(%an)%Creset %Cred%d%Creset'
