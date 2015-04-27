@@ -174,8 +174,17 @@ hi HintActive color: black; background-color: #ACAFD2;
 "---------
 "keyconfig
 "---------
+"Ctrl+h,j,k,l
+"Ctrl+Shift+h,j,k,l
+"Ctrl+w
+"その他はなんだったか忘れた
+
 "bookmarkAllTabskb
 set! keyconfig.main.bookmarkAllTabsKb=!][][
+"focusURLBar
+set! keyconfig.main.focusURLBar=;!][][
+"browserConsole
+set! keyconfig.main.key_browserConsole=;!][][
 "key_close
 set! keyconfig.main.key_close=][][
 "key_firebug_focusConsole
@@ -194,8 +203,12 @@ set! keyconfig.main.key_tm_detachTab=!][][
 set! keyconfig.main.key_tm_dupTab=!][][
 "key_tm_mergeWin
 set! keyconfig.main.key_tm_mergeWin=!][][
-"key_tm_mergeWin
+"key_undoClose
 set! keyconfig.main.key_tm_undoClose=!][][
+"webconsole
+set! keyconfig.main.key_webconsole=!][][
+"showAllHistoryKb
+set! keyconfig.main.showAllHistoryKb=!][][
 "viewBookmarkSidebarKb
 set! keyconfig.main.viewBookmarksSidebarKb=!][][
 
