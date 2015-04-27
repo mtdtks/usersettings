@@ -158,6 +158,18 @@ function(){
 EOM
 nnoremap @ :togglepin <CR>
 
+"表示しているタブ以外をすべて閉じる
+js <<EOM
+commands.addUserCommand(
+['removeAnotherTabs', 'ra'],
+'表示しているタブ以外のタブを閉じる',
+function() {
+liberator.modules.tabs.keepOnly(gBrowser.selectedTab);
+}
+);
+EOM
+nmap D :removeAnotherTabs<CR> 
+
 " タブ順序変更
 nnoremap <C-h> :tabmove! -1<CR>
 nnoremap <C-l> :tabmove! +1<CR>
