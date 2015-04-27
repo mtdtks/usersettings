@@ -137,7 +137,10 @@ imap <C-w> <C-RIGHT>
 imap <C-b> <C-LEFT>
 imap <C-0> <C-HOME>
 imap <C-4> <C-END>
-
+imap <C-S-l> <S-RIGHT>
+imap <C-S-h> <S-LEFT>
+imap <C-S-w> <C-S-RIGHT>
+imap <C-S-b> <C-S-LEFT>
 
 "タブのピン留めをトグルする
 "http://qiita.com/t3kot3ko/items/1b032940dbb79e88323e
