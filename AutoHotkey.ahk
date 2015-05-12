@@ -2,17 +2,11 @@
 ;Default vim.ahk settings.
 ;#Include  %A_ScriptDir%\vim.ahk
 
-;honten-ssbk settings
 ;write to "%HOME%\AutoHotkey.ahk"
-;Setting fot honten-SSBK
+;Setting fot win7
 ;-----
-;#Include  C:\Users\honten\vim.ahk
-;#Include  C:\Users\honten\AutoHotkey.ahk
-;-----
-;Setting fot LUISXIV
-;-----
-;#Include  C:\Users\matsuoka\vim.ahk
-;#Include  C:\Users\matsuoka\AutoHotkey.ahk
+;#Include  C:\Users\username\vim.ahk
+;#Include  C:\Users\username\AutoHotkey.ahk
 ;------
 
 ; 十字キー設定
