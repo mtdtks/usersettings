@@ -7,6 +7,7 @@ this repository is my user settings for
 
 ##vim
 * vimrc
+* gvimrc
 * vimperatorrc
 * .vim/bundle/.neobundle/
 * .vim/bundke/neobundle.vim/
@@ -19,8 +20,9 @@ this repository is my user settings for
 ##tools
 * .bashrc
 * .jshintrc
+* AutoHotkey(require from Documents) 
 
-* firest set up
+* vim set up
 neobundle into .vim
 if vim error then
 "- 'plugin name"
