@@ -29,7 +29,3 @@ if vim error then
 to vimrc
 after
 neobundle "plugin name"
-
-##repositry
-`git remote add origin "git@bitbucket.org:mtdtks/usersettings.git"
-
