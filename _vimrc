@@ -175,6 +175,21 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+"-----------------
+"kannokanno/previm
+"-----------------
+NeoBundle 'kannokanno/previm'
+NeoBundle 'tyru/open-browser.vim'
+let g:previm_open_cmd = ''
+" リアルタイムにプレビューする
+let g:previm_enable_realtime = 1
+
+".md設定
+augroup PrevimSettings
+    autocmd!
+    autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+augroup END
+
 "-------------
 "lightline.vim
 "-------------
@@ -184,7 +199,10 @@ NeoBundle 'itchyny/lightline.vim'
 "Color_Scheme
 "==================
 "hybrid
-NeoBundle 'w0ng/vim-hybrid.vim'
+"!!manual Install!!
+"git clone "https://github.com/w0ng/vim-hybrid.git" ->.vim/bundle/vim-hybrid
+"NeoBundle 'w0ng/vim-hybrid'
+
 " solarized
 NeoBundle 'altercation/vim-colors-solarized'
 " jellybeans
@@ -193,15 +211,13 @@ NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'tomasr/molokai'
 " mustang
 NeoBundle 'croaker/mustang-vim'
-" vim-hybrid
-NeoBundle 'w0ng/vim-hybrid'
 "vim-tomorrow-theme
 NeoBundle 'chriskempson/vim-tomorrow-theme'
 
 "set t_Co=256
 syntax on
 set background=dark
-colorscheme desert
+colorscheme hybrid
 
 
 "  set t_Co=256
