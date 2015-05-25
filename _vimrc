@@ -53,6 +53,15 @@ NeoBundle 'ujihisa/unite-colorscheme'
 "colorscheme test
 ":Unite colorscheme -auto-preview
 
+"---------------------
+"vim日本語ドキュメント
+"---------------------
+NeoBundle 'vim-jp/vimdoc-ja'
+" Use = :h
+" vimdoc-ja 表示されない場合は以下を実行
+" "helptags ~/.vim/bundle/vimdoc-ja/doc
+
+
 "-------
 "vimproc
 "-------
@@ -180,10 +189,9 @@ let g:syntastic_check_on_wq = 0
 "-----------------
 NeoBundle 'kannokanno/previm'
 NeoBundle 'tyru/open-browser.vim'
-let g:previm_open_cmd = ''
 " リアルタイムにプレビューする
 let g:previm_enable_realtime = 1
-
+let g:previm_open_cmd = ''
 ".md設定
 augroup PrevimSettings
     autocmd!
