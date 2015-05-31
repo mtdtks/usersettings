@@ -17,3 +17,9 @@
 #!/.vim/bundle/.neobundle/tags_info
 #!/.vim/.neobundle/doc/*.txt
 #!/.vim/bundle/.NeoBundle.lock
+
+####
+#vim
+####
+.vim/bundle
+.vim/tmp

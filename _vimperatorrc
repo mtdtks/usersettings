@@ -8,6 +8,10 @@
 "============================
 
 
+"アドレスをオートコンプリート
+set complete=l
+
+
 "エディターの設定
 "C:に配置すること
 "SublimeText3
@@ -197,6 +201,7 @@ hi HintActive color: black; background-color: #ACAFD2;
 "bookmarkAllTabskb
 set! keyconfig.main.bookmarkAllTabsKb=!][][
 "focusURLBar
+"たまにエラーになる↓
 "set! keyconfig.main.focusURLBar;alt][D][
 "browserConsole
 set! keyconfig.main.key_browserConsole=;!][][

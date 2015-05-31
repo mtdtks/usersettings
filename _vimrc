@@ -18,6 +18,11 @@ language messages ja_jp.UTF-8
 "cuiでこちらが確実
 set clipboard+=unnamedplus,unnamed
 
+"タブ・スペースの表示
+set list
+set listchars=tab:>-,trail:-,extends:>,precedes:<,nbsp:%
+
+set cursorline
 
 "======================================
 "Plugins
