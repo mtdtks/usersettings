@@ -197,7 +197,7 @@ hi HintActive color: black; background-color: #ACAFD2;
 "bookmarkAllTabskb
 set! keyconfig.main.bookmarkAllTabsKb=!][][
 "focusURLBar
-set! keyconfig.main.focusURLBar;alt][D][
+"set! keyconfig.main.focusURLBar;alt][D][
 "browserConsole
 set! keyconfig.main.key_browserConsole=;!][][
 "key_close
