@@ -206,6 +206,11 @@ augroup PrevimSettings
     autocmd!
     autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 augroup END
+"au BufRead,BufNewFile *.md set filetype=markdown
+"let g:previm_open_cmd = 'open -a Firefox'
+
+"Need to Add The Pass.
+:command! PrevimFx32 :!firefox "C:\Documents and Settings\Owner\.vim\bundle\previm\preview\index.html"
 
 "-------------
 "lightline.vim
