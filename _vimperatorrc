@@ -45,7 +45,7 @@ set newtab=all
 
 ":reconfig で_vimperatorrcを再読込み
 :command! reconfig :source! ~/_vimperatorrc
-
+":vimpeedit で_vimperatorrcをエディターで編集
 :command! vimpedit :edit ~/_vimperatorrc
 
 
