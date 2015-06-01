@@ -21,8 +21,12 @@ set clipboard+=unnamedplus,unnamed
 "タブ・スペースの表示
 set list
 set listchars=tab:>-,trail:-,extends:>,precedes:<,nbsp:%
-
+"カーソル行強調
 set cursorline
+
+" 全角スペース表示
+autocmd ColorScheme * hi link TwoByteSpace Error
+autocmd VimEnter,WinEnter * let w:m_tbs = matchadd("TwoByteSpace", '　')
 
 "======================================
 "Plugins
