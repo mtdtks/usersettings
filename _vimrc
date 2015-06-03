@@ -21,8 +21,12 @@ set clipboard+=unnamedplus,unnamed
 "タブ・スペースの表示
 set list
 set listchars=tab:>-,trail:-,extends:>,precedes:<,nbsp:%
-
+"カーソル行強調
 set cursorline
+
+" 全角スペース表示
+autocmd ColorScheme * hi link TwoByteSpace Error
+autocmd VimEnter,WinEnter * let w:m_tbs = matchadd("TwoByteSpace", '　')
 
 "======================================
 "Plugins
@@ -202,6 +206,11 @@ augroup PrevimSettings
     autocmd!
     autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 augroup END
+"au BufRead,BufNewFile *.md set filetype=markdown
+"let g:previm_open_cmd = 'open -a Firefox'
+
+"Need to Add The Pass.
+:command! PrevimFx32 :!firefox "C:\Documents and Settings\Owner\.vim\bundle\previm\preview\index.html"
 
 "-------------
 "lightline.vim

@@ -21,5 +21,5 @@
 ####
 #vim
 ####
-.vim/bundle
-.vim/tmp
+.vim/bundle/
+.vim/tmp/

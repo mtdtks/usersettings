@@ -1,8 +1,5 @@
 "3.8.3 (created: 2014/02/13 23:52:43)
 
-"ソース設定してるがしなくて良いのでは
-"source! "C:\\Users\\matsuoka\\_vimperatorrc.local"
-
 "============================
 "General
 "============================
@@ -42,6 +39,36 @@ set newtab=all
 " マウスカーソルを邪魔じゃないとこに飛ばす
 "nnoremap <A-z> :mouse move 1800 10000<CR>
 
+"ブックマーク
+"map b :open about:mybookmarks
+:command! bm :bmarks
+
+":reconfig で_vimperatorrcを再読込み
+:command! reconfig :source! ~/_vimperatorrc
+":vimpeedit で_vimperatorrcをエディターで編集
+:command! vimpedit :edit ~/_vimperatorrc
+
+
+"qmark
+"go{a-zA-Z0-9} 開いているタブで、quickmarkのサイトを開く
+"gn{a-zA-Z0-9} 新しいタブで、quickmarkのサイトを開く
+"M{a-zA-Z0-9}  開いているサイトをquickmarkする
+":delgm {a-zA-Z0-9}  消したいアルファベット、数字を指定(複数指定可能)
+":qmarks       Quickmarksの一覧表示  
+
+qmark c https://cybozulive.com/
+qmark b https://bitbucket.org/
+qmark g https://github.com/
+qmark a http://www.amazon.co.jp/%E5%92%8C%E6%9B%B8%E8%A9%B3%E7%B4%B0%E3%82%B5%E3%83%BC%E3%83%81/b/ref=sv_b_0?ie=UTF8&node=124284011
+qmark n https://www.kosho.or.jp/
+qmark z https://www.kosho.or.jp/koshoadmin/
+
+"便利機能
+"履歴から補完      ^
+"bookmarkから補完  *
+"タグから補完      +
+"タイトルから補完  #
+"URLから補完       @
 
 "============================
 "はてなブックマーク設定
@@ -50,44 +77,44 @@ set newtab=all
 "はてなブックマーク機能をオン
 javascript if (typeof hBookmark != 'undefined') liberator.loadScript('chrome://hatenabookmark/content/vimperator/plugin/hatenabookmark.js', {__proto__: this});
 
-"javascript <<EOF
-"// キーボードショートカットの指定
-"// 空(null)を指定すれば hints や nnoremap を上書きしなくなる
-"//    (注: 現バージョンではデフォルト値で上書きされてます。将来修正予定です)
-"liberator.globalVariables.hBookmark_shortcuts = {
-"    hintsAdd     : 'h',
-"    hintsComment : 'H',
-"    add          : ['h'],
-"    comment      : ['H'],
-"};
-"
-"// コマンドの設定
-"// ここから下の設定は、はてなブックマーク拡張のバージョン 1.2.4a1 以降で有効です。
-"liberator.globalVariables.hBookmark_commands = {
-"        hbsearch             : 'hb[search]',
-"        hbsearch_tab         : 'hbt[absearch]',
-"        hbsearch_comment     : 'hbc[omment]',
-"        hbsearch_comment_tab : 'hbtc[omment]',
-"        hbsearch_url         : 'hbu[rl]',
-"        hbsearch_url_tab     : 'hbtu[rl]',
-"        hbsearch_title       : 'hbti[tle]',
-"        hbsearch_title_tab   : 'hbtti[tle]',
-"};
-"
-"// :hb! url 等の bang(!) 付きで開いた場合の挙動。
-"// 標準ははてブエントリーページを開く entryPage が設定されている。
-"// 他に新規タブで開く openNewTab がある。
-"// また、文字列ではなく自分で定義した関数をセットすることもできる。
-"liberator.globalVariables.hBookmark_bangFunction = 'entryPage';
-"
-"// 検索時の wait(ms)
-"liberator.globalVariables.hBookmark_search_interval = 1000;
-"// 一度に検索する limit
-"liberator.globalVariables.hBookmark_search_limit = 10;
-"// 検索時の表示の最大件数。この件数に達するまで検索し続ける。
-"liberator.globalVariables.hBookmark_search_max_limit = 100;
-""
 "EOF
+javascript <<EOF
+// キーボードショートカットの指定
+// 空(null)を指定すれば hints や nnoremap を上書きしなくなる
+//    (注: 現バージョンではデフォルト値で上書きされてます。将来修正予定です)
+liberator.globalVariables.hBookmark_shortcuts = {
+    hintsAdd     : 'c',
+    hintsComment : 'C',
+    add          : ['c'],
+    comment      : ['C'],
+};
+
+// コマンドの設定
+// ここから下の設定は、はてなブックマーク拡張のバージョン 1.2.4a1 以降で有効です。
+liberator.globalVariables.hBookmark_commands = {
+        hbsearch             : 'hb[search]',
+        hbsearch_tab         : 'hbt[absearch]',
+        hbsearch_comment     : 'hbc[omment]',
+        hbsearch_comment_tab : 'hbtc[omment]',
+        hbsearch_url         : 'hbu[rl]',
+        hbsearch_url_tab     : 'hbtu[rl]',
+        hbsearch_title       : 'hbti[tle]',
+        hbsearch_title_tab   : 'hbtti[tle]',
+};
+
+// :hb! url 等の bang(!) 付きで開いた場合の挙動。
+// 標準ははてブエントリーページを開く entryPage が設定されている。
+// 他に新規タブで開く openNewTab がある。
+// また、文字列ではなく自分で定義した関数をセットすることもできる。
+liberator.globalVariables.hBookmark_bangFunction = 'entryPage';
+
+// 検索時の wait(ms)
+liberator.globalVariables.hBookmark_search_interval = 1000;
+// 一度に検索する limit
+liberator.globalVariables.hBookmark_search_limit = 10;
+// 検索時の表示の最大件数。この件数に達するまで検索し続ける。
+liberator.globalVariables.hBookmark_search_max_limit = 100;
+EOF
 
 
 "============================
@@ -231,3 +258,48 @@ set! keyconfig.main.showAllHistoryKb=!][][
 "viewBookmarkSidebarKb
 set! keyconfig.main.viewBookmarksSidebarKb=!][][
 
+"長いURLでコマンドが被るバグ
+" ==VimperatorColorChema==
+" name: abyss
+" ==/VimperatorColorSchema==
+"hi Bell               display: none;
+"hi CmdLine            font-family: monospace; font-size: 9pt; padding: 3px 2px;
+"
+"hi CompResult         font-family: monospace; width: 35%; overflow: hidden;
+"hi CompDesc           width: 60%; color: LightGray; font-size: 9pt;
+"hi CompItem           font-size: 9pt; color: PaleGreen;
+"hi CompItem[selected] background-color: DimGray;
+"hi CompTitle          color: DeepPink; font-size: 11pt;
+"
+"" Hints
+"hi Hint               font-family: monospace; font-size: 16px; font-weight: normal; color: white; background-color: rgba(0, 0, 0, 0.5); border: solid 1px LightGray;
+"hi HintElem           background-color: Khaki; color: Black;
+"hi HintActive         background-color: Orange; color: White;
+"
+"hi Keyword            color: DodgerBlue;
+"hi NonText            background-color: #333;
+"hi Normal             color: LightGray; background-color: #333;
+"hi Question           color: LightGray; background-color: #333;
+"
+"" Status Line
+"hi StatusLine         color: LightGray; background-color: #333; font-size: 9pt; font-family: monospace; font-weight: normal; padding: 2px 3px;
+"
+"hi Tag                color: Orchid;
+"hi Title              color: DeepPink;
+"hi URL                color: LimeGreen;
+"
+"" Messages
+"hi Message            color: LightGray; background-color: #333; font-family: monospace; font-size: 9pt;
+"hi ErrorMsg           background-color: DarkRed;
+"hi InfoMsg            background-color: #333;
+"hi ModeMsg            background-color: #333;
+"hi MoreMsg            background-color: #333;
+"hi WarningMsg         background-color: #333;
+"
+""" JavaScript Objects
+"hi Boolean            color: Chocolate;
+"hi Function           color: RoyalBlue;
+"hi Null               color: SlateGray;
+"hi Number             color: Crimson;
+"hi Object             color: Khaki;
+"hi String             color: LimeGreen;
