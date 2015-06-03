@@ -55,10 +55,10 @@ javascript if (typeof hBookmark != 'undefined') liberator.loadScript('chrome://h
 "// 空(null)を指定すれば hints や nnoremap を上書きしなくなる
 "//    (注: 現バージョンではデフォルト値で上書きされてます。将来修正予定です)
 "liberator.globalVariables.hBookmark_shortcuts = {
-"    hintsAdd     : 'c',
-"    hintsComment : 'C',
-"    add          : ['c'],
-"    comment      : ['C'],
+"    hintsAdd     : 'h',
+"    hintsComment : 'H',
+"    add          : ['h'],
+"    comment      : ['H'],
 "};
 "
 "// コマンドの設定
@@ -201,7 +201,6 @@ hi HintActive color: black; background-color: #ACAFD2;
 "bookmarkAllTabskb
 set! keyconfig.main.bookmarkAllTabsKb=!][][
 "focusURLBar
-"たまにエラーになる↓
 "set! keyconfig.main.focusURLBar;alt][D][
 "browserConsole
 set! keyconfig.main.key_browserConsole=;!][][
