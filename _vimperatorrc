@@ -70,6 +70,11 @@ qmark z https://www.kosho.or.jp/koshoadmin/
 "タイトルから補完  #
 "URLから補完       @
 
+"日本語のページでも]]&[[で操作
+"amazonで動いた。
+set nextpattern=\bnext\b,\bmore\b,next,^次(の)?ページ,\b次.*,→\b,^>$,^(>>|≫)$,^(>|≫),(>|≫)$
+set previouspattern=\bprev|previous\b,prev,^前(の)?ページ,\b前.*,\b←,^<$,^(<<|≪)$,^(<|≪),(<|≪)$ 
+
 "============================
 "はてなブックマーク設定
 "============================
