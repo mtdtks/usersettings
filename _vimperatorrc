@@ -62,6 +62,9 @@ qmark g https://github.com/
 qmark a http://www.amazon.co.jp/%E5%92%8C%E6%9B%B8%E8%A9%B3%E7%B4%B0%E3%82%B5%E3%83%BC%E3%83%81/b/ref=sv_b_0?ie=UTF8&node=124284011
 qmark n https://www.kosho.or.jp/
 qmark z https://www.kosho.or.jp/koshoadmin/
+qmark x https://ext.kosho.jp/extranet/shop/login.do
+qmark t https://twitter.com/
+qmark f https://www.facebook.com/
 
 "便利機能
 "履歴から補完      ^
