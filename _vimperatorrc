@@ -70,6 +70,24 @@ qmark z https://www.kosho.or.jp/koshoadmin/
 "タイトルから補完  #
 "URLから補完       @
 
+
+"Autopagerize toggle
+"動かず
+"js << EOM
+"    let evaluateXPath = util.evaluateXPath || buffer.evaluateXPath;
+"    mappings.addUserMap(
+"      [modes.NORMAL],
+"      ['n'],
+"      'Toggle AutoPagerize',
+"      function (motion, count, arg) {
+"        buffer.followLink(
+"          evaluateXPath('id("autopagerize_help")/div/a[@class="autopagerize_link"]').snapshotItem(0)
+"        );
+"      },
+"      {}
+"    );
+"EOM
+
 "============================
 "はてなブックマーク設定
 "============================
