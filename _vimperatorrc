@@ -73,6 +73,11 @@ qmark f https://www.facebook.com/
 "タイトルから補完  #
 "URLから補完       @
 
+"日本語のページでも]]&[[で操作
+"amazonで動いた。
+set nextpattern=\bnext\b,\bmore\b,next,^次(の)?ページ,\b次.*,→\b,^>$,^(>>|≫)$,^(>|≫),(>|≫)$
+set previouspattern=\bprev|previous\b,prev,^前(の)?ページ,\b前.*,\b←,^<$,^(<<|≪)$,^(<|≪),(<|≪)$ 
+
 "============================
 "はてなブックマーク設定
 "============================
@@ -80,6 +85,7 @@ qmark f https://www.facebook.com/
 "はてなブックマーク機能をオン
 javascript if (typeof hBookmark != 'undefined') liberator.loadScript('chrome://hatenabookmark/content/vimperator/plugin/hatenabookmark.js', {__proto__: this});
 
+"EOF
 javascript <<EOF
 // キーボードショートカットの指定
 // 空(null)を指定すれば hints や nnoremap を上書きしなくなる
@@ -230,7 +236,6 @@ hi HintActive color: black; background-color: #ACAFD2;
 "bookmarkAllTabskb
 set! keyconfig.main.bookmarkAllTabsKb=!][][
 "focusURLBar
-"たまにエラーになる↓
 "set! keyconfig.main.focusURLBar;alt][D][
 "browserConsole
 set! keyconfig.main.key_browserConsole=;!][][
