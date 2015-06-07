@@ -81,20 +81,16 @@ set previouspattern=\bprev|previous\b,prev,^前(の)?ページ,\b前.*,\b←,^<$
 "============================
 "はてなブックマーク設定
 "============================
-"デフォルトではオフ
-"はてなブックマーク機能をオン
-javascript if (typeof hBookmark != 'undefined') liberator.loadScript('chrome://hatenabookmark/content/vimperator/plugin/hatenabookmark.js', {__proto__: this});
-
 "EOF
 javascript <<EOF
 // キーボードショートカットの指定
 // 空(null)を指定すれば hints や nnoremap を上書きしなくなる
 //    (注: 現バージョンではデフォルト値で上書きされてます。将来修正予定です)
 liberator.globalVariables.hBookmark_shortcuts = {
-    hintsAdd     : 'c',
-    hintsComment : 'C',
-    add          : ['c'],
-    comment      : ['C'],
+    hintsAdd     : 'h',
+    hintsComment : 'H',
+    add          : ['h'],
+    comment      : ['H'],
 };
 
 // コマンドの設定
@@ -124,6 +120,9 @@ liberator.globalVariables.hBookmark_search_limit = 10;
 liberator.globalVariables.hBookmark_search_max_limit = 100;
 EOF
 
+"デフォルトではオフ
+"はてなブックマーク機能をロード
+javascript if (typeof hBookmark != 'undefined') liberator.loadScript('chrome://hatenabookmark/content/vimperator/plugin/hatenabookmark.js', {__proto__: this});
 
 "============================
 "Plugins
