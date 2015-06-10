@@ -62,6 +62,9 @@ qmark g https://github.com/
 qmark a http://www.amazon.co.jp/%E5%92%8C%E6%9B%B8%E8%A9%B3%E7%B4%B0%E3%82%B5%E3%83%BC%E3%83%81/b/ref=sv_b_0?ie=UTF8&node=124284011
 qmark n https://www.kosho.or.jp/
 qmark z https://www.kosho.or.jp/koshoadmin/
+qmark x https://ext.kosho.jp/extranet/shop/login.do
+qmark t https://twitter.com/
+qmark f https://www.facebook.com/
 
 "便利機能
 "履歴から補完      ^
@@ -69,6 +72,23 @@ qmark z https://www.kosho.or.jp/koshoadmin/
 "タグから補完      +
 "タイトルから補完  #
 "URLから補完       @
+
+"Autopagerize toggle
+"動かず
+"js << EOM
+"    let evaluateXPath = util.evaluateXPath || buffer.evaluateXPath;
+"    mappings.addUserMap(
+"      [modes.NORMAL],
+"      ['n'],
+"      'Toggle AutoPagerize',
+"      function (motion, count, arg) {
+"        buffer.followLink(
+"          evaluateXPath('id("autopagerize_help")/div/a[@class="autopagerize_link"]').snapshotItem(0)
+"        );
+"      },
+"      {}
+"    );
+"EOM
 
 "日本語のページでも]]&[[で操作
 "amazonで動いた。
@@ -78,20 +98,16 @@ set previouspattern=\bprev|previous\b,prev,^前(の)?ページ,\b前.*,\b←,^<$
 "============================
 "はてなブックマーク設定
 "============================
-"デフォルトではオフ
-"はてなブックマーク機能をオン
-javascript if (typeof hBookmark != 'undefined') liberator.loadScript('chrome://hatenabookmark/content/vimperator/plugin/hatenabookmark.js', {__proto__: this});
-
 "EOF
 javascript <<EOF
 // キーボードショートカットの指定
 // 空(null)を指定すれば hints や nnoremap を上書きしなくなる
 //    (注: 現バージョンではデフォルト値で上書きされてます。将来修正予定です)
 liberator.globalVariables.hBookmark_shortcuts = {
-    hintsAdd     : 'c',
-    hintsComment : 'C',
-    add          : ['c'],
-    comment      : ['C'],
+    hintsAdd     : 'h',
+    hintsComment : 'H',
+    add          : ['h'],
+    comment      : ['H'],
 };
 
 // コマンドの設定
@@ -121,6 +137,9 @@ liberator.globalVariables.hBookmark_search_limit = 10;
 liberator.globalVariables.hBookmark_search_max_limit = 100;
 EOF
 
+"デフォルトではオフ
+"はてなブックマーク機能をロード
+javascript if (typeof hBookmark != 'undefined') liberator.loadScript('chrome://hatenabookmark/content/vimperator/plugin/hatenabookmark.js', {__proto__: this});
 
 "============================
 "Plugins
