@@ -7,7 +7,8 @@
 
 "アドレスをオートコンプリート
 set complete=l
-
+" 入力欄に自動フォーカスしない
+set focuscontent
 
 "エディターの設定
 "C:に配置すること
@@ -37,11 +38,15 @@ set newtab=all
 
 "!動かない
 " マウスカーソルを邪魔じゃないとこに飛ばす
-"nnoremap <A-z> :mouse move 1800 10000<CR>
+"nnoremap <A-z> :mouse move 200 1<CR>
+" win-mouse
+"let g:win_mouse_map_move_left = "<A-i>"
 
 "ブックマーク
 "map b :open about:mybookmarks
 :command! bm :bmarks
+
+
 
 ":reconfig で_vimperatorrcを再読込み
 :command! reconfig :source! ~/_vimperatorrc
@@ -94,6 +99,31 @@ qmark f https://www.facebook.com/
 "amazonで動いた。
 set nextpattern=\bnext\b,\bmore\b,next,^次(の)?ページ,\b次.*,→\b,^>$,^(>>|≫)$,^(>|≫),(>|≫)$
 set previouspattern=\bprev|previous\b,prev,^前(の)?ページ,\b前.*,\b←,^<$,^(<<|≪)$,^(<|≪),(<|≪)$ 
+
+
+"autocommand
+"調整中
+"javascript <<EOM
+"
+"// amazonで検索窓を自動選択
+"vimpMonkey('http://www\\.amazon\\.co\\.jp', function(){
+"     var isbnfocus = document.getElementById("twotabsearchtextbox");
+"     isbnfocus.focus();
+"});
+"
+"// VimperatorでGreasemonkeyみたいな事をする - wltの日記 - http://d.hatena.ne.jp/wlt/20110105/1294204461
+"function vimpMonkey(urlRegexPattern, func) {
+"  var cmd = eval('(function(args) {' +
+"    'var content = tabs.getTab(args.tab - 1).linkedBrowser.contentWindow;' +
+"    'var unsafeContent = content.wrappedJSObject;' +
+"    func.toSource() + '();' +
+"  '})');
+"  autocommands.add('PageLoad', urlRegexPattern, cmd);
+"}
+"
+"EOM
+":command! fcs gi
+"autocmd PageLoad www\\.amazon\\.co\\.jp :fcs
 
 "============================
 "はてなブックマーク設定
@@ -233,9 +263,13 @@ nnoremap <C-l> :tabmove! +1<CR>
 " colorscheme
 "============================
 " 赤紫のヒント・モード
-hi Hint font-family: Arial; font-size: 18px; font-weight: bold; text-shadow: -1px -1px 2px black, 1px -1px 2px black, -1px 1px 2px black, 1px 1px 2px black; color: #E50076; text-transform: uppercase;
-hi HintElem color: black; background-color: #BCC8DB;
-hi HintActive color: black; background-color: #ACAFD2;
+"Indigo.vimpへ移動
+"hi Hint font-family: Arial; font-size: 18px; font-weight: bold; text-shadow: -1px -1px 2px black, 1px -1px 2px black, -1px 1px 2px black, 1px 1px 2px black; color: #E50076; text-transform: uppercase;
+"hi HintElem color: black; background-color: #BCC8DB;
+"hi HintActive color: black; background-color: #ACAFD2;
+"statusLine color
+
+colorscheme indigo_cstm
 
 "============================
 " about:config
@@ -282,48 +316,4 @@ set! keyconfig.main.showAllHistoryKb=!][][
 "viewBookmarkSidebarKb
 set! keyconfig.main.viewBookmarksSidebarKb=!][][
 
-"長いURLでコマンドが被るバグ
-" ==VimperatorColorChema==
-" name: abyss
-" ==/VimperatorColorSchema==
-"hi Bell               display: none;
-"hi CmdLine            font-family: monospace; font-size: 9pt; padding: 3px 2px;
-"
-"hi CompResult         font-family: monospace; width: 35%; overflow: hidden;
-"hi CompDesc           width: 60%; color: LightGray; font-size: 9pt;
-"hi CompItem           font-size: 9pt; color: PaleGreen;
-"hi CompItem[selected] background-color: DimGray;
-"hi CompTitle          color: DeepPink; font-size: 11pt;
-"
-"" Hints
-"hi Hint               font-family: monospace; font-size: 16px; font-weight: normal; color: white; background-color: rgba(0, 0, 0, 0.5); border: solid 1px LightGray;
-"hi HintElem           background-color: Khaki; color: Black;
-"hi HintActive         background-color: Orange; color: White;
-"
-"hi Keyword            color: DodgerBlue;
-"hi NonText            background-color: #333;
-"hi Normal             color: LightGray; background-color: #333;
-"hi Question           color: LightGray; background-color: #333;
-"
-"" Status Line
-"hi StatusLine         color: LightGray; background-color: #333; font-size: 9pt; font-family: monospace; font-weight: normal; padding: 2px 3px;
-"
-"hi Tag                color: Orchid;
-"hi Title              color: DeepPink;
-"hi URL                color: LimeGreen;
-"
-"" Messages
-"hi Message            color: LightGray; background-color: #333; font-family: monospace; font-size: 9pt;
-"hi ErrorMsg           background-color: DarkRed;
-"hi InfoMsg            background-color: #333;
-"hi ModeMsg            background-color: #333;
-"hi MoreMsg            background-color: #333;
-"hi WarningMsg         background-color: #333;
-"
-""" JavaScript Objects
-"hi Boolean            color: Chocolate;
-"hi Function           color: RoyalBlue;
-"hi Null               color: SlateGray;
-"hi Number             color: Crimson;
-"hi Object             color: Khaki;
-"hi String             color: LimeGreen;
+
