@@ -316,4 +316,7 @@ set! keyconfig.main.showAllHistoryKb=!][][
 "viewBookmarkSidebarKb
 set! keyconfig.main.viewBookmarksSidebarKb=!][][
 
-
+"MESSAGES
+javascript <<EOM
+liberator.echo("Welcome to the Vimperator! ");
+EOM
