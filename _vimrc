@@ -28,6 +28,15 @@ set cursorline
 autocmd ColorScheme * hi link TwoByteSpace Error
 autocmd VimEnter,WinEnter * let w:m_tbs = matchadd("TwoByteSpace", '　')
 
+"スペースをハイライト
+augroup HighlightTrailingSpaces
+  autocmd!
+  autocmd VimEnter,WinEnter,ColorScheme * highlight TrailingSpaces term=bold,reverse guibg=#080808 guifg=#808080 ctermbg=Red
+
+  autocmd VimEnter,WinEnter * match TrailingSpaces /\s\+$/
+augroup END
+
+
 "======================================
 "Plugins
 "======================================
