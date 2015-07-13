@@ -138,6 +138,8 @@ let g:neocomplete#lock_buffer_name_pattern        = '\*ku\*'
 NeoBundle 'scrooloose/nerdtree'
 ":NERDTreeでツリー起動
 ":NERDTreeToggleでトグル
+"<C-e>でトグル
+nnoremap <silent><C-e> :NERDTreeToggle<CR>
 
 "------------
 "vim_surround
