@@ -53,6 +53,9 @@ set newtab=all
 ":vimpeedit で_vimperatorrcをエディターで編集
 :command! vimpedit :edit ~/_vimperatorrc
 
+"タブグループを移動
+"動かず...なぜかgoogle検索が開く
+"map <Leader>ps :<C-u>panorama switch<Space>
 
 "qmark
 "go{a-zA-Z0-9} 開いているタブで、quickmarkのサイトを開く
