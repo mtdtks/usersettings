@@ -42,12 +42,6 @@ set newtab=all
 " win-mouse
 "let g:win_mouse_map_move_left = "<A-i>"
 
-"ブックマーク
-"map b :open about:mybookmarks
-:command! bm :bmarks
-
-
-
 ":reconfig で_vimperatorrcを再読込み
 :command! reconfig :source! ~/_vimperatorrc
 ":vimpeedit で_vimperatorrcをエディターで編集
