@@ -42,10 +42,21 @@ set newtab=all
 " win-mouse
 "let g:win_mouse_map_move_left = "<A-i>"
 
+============={commands}================
+
 ":reconfig で_vimperatorrcを再読込み
 :command! reconfig :source! ~/_vimperatorrc
 ":vimpeedit で_vimperatorrcをエディターで編集
 :command! vimpedit :edit ~/_vimperatorrc
+
+"gui
+"初期設定
+set gui=addons,nobookmarks,nomenu,navigation,tabs
+"command
+:command! guimanuon :set gui=menu
+:command! guimanuoff :set gui=nomenu
+:command! guibookmarkon :set gui=bookmarks
+:command! guibookmarkoff :set gui=nobookmarks
 
 "タブグループを移動
 "動かず...なぜかgoogle検索が開く
