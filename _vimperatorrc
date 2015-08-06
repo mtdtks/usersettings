@@ -51,7 +51,10 @@ set newtab=all
 
 "gui
 "初期設定
-set gui=addons,nobookmarks,nomenu,navigation,tabs
+"##default_setting
+"set gui=addons,nobookmarks,nomenu,navigation,tabs
+"##honten_setting
+"set gui=addons,bookmarks,menu,navigation,tabs
 "command
 :command! guimanuon :set gui=menu
 :command! guimanuoff :set gui=nomenu
