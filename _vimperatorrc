@@ -44,6 +44,9 @@ set newtab=all
 
 ============={commands}================
 
+"bmarks短縮
+nmap B :bmarks<Space>
+
 ":reconfig で_vimperatorrcを再読込み
 :command! reconfig :source! ~/_vimperatorrc
 ":vimpeedit で_vimperatorrcをエディターで編集
@@ -293,8 +296,8 @@ nmap pu :panorama pulltab<Space>
 "" タブグループを削除
 nmap pr :panorama remove<Space>
 "" タブグループビューを開く
+"なにかエラーがある
 nmap po <C-S-e>
-command! ps :panorama switch
 
 "============================
 " colorscheme
