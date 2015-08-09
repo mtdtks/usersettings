@@ -4,7 +4,7 @@
 "General
 "============================
 
-
+beep off
 "アドレスをオートコンプリート
 set complete=l
 " 入力欄に自動フォーカスしない
@@ -135,6 +135,11 @@ set previouspattern=\bprev|previous\b,prev,^前(の)?ページ,\b前.*,\b←,^<$
 "EOM
 ":command! fcs gi
 "autocmd PageLoad www\\.amazon\\.co\\.jp :fcs
+
+"evernote web clipper
+"cant work!
+":command! clip javascript evernote_doAction()
+
 
 "============================
 "はてなブックマーク設定
@@ -274,22 +279,22 @@ nnoremap <C-l> :tabmove! +1<CR>
 ""■THX for
 ""■http://jagua.hatenablog.jp/entry/2012/12/08/001014
 "" :panorama のサブコマンドを入力待ち
-"nnoremap <Leader>pc :<C-u>panorama<Space>
+nmap P :panorama<Space>
 "" タブグループを移動
-"nnoremap <Leader>ps :<C-u>panorama switch<Space>
+nmap ps :panorama switch<Space>
 "" タブグループを新規作成
-"nnoremap <Leader>pa :<C-u>panorama add<Space>
+nmap pa :panorama add<Space>
 "" タブグループリストを表示
-"nnoremap <Leader>pl :<C-u>panorama list<CR>
+nmap pl :panorama list<CR>
 "" 現在のタブをタブグループに追加
-"nnoremap <Leader>pp :<C-u>panorama pushtab<Space>
+nmap pp :panorama pushtab<Space>
 "" 現在のタブグループにタブを追加
-"nnoremap <Leader>pu :<C-u>panorama pulltab<Space>
+nmap pu :panorama pulltab<Space>
 "" タブグループを削除
-"nnoremap <Leader>pr :<C-u>panorama remove<Space>
+nmap pr :panorama remove<Space>
 "" タブグループビューを開く
-"nnoremap <Leader>po <C-S-e>
-
+nmap po <C-S-e>
+command! ps :panorama switch
 
 "============================
 " colorscheme
