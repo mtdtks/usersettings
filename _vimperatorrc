@@ -42,6 +42,10 @@ set newtab=all
 " win-mouse
 "let g:win_mouse_map_move_left = "<A-i>"
 
+
+
+============={igonore keys}================
+
 ============={commands}================
 
 "bmarks短縮
@@ -153,10 +157,10 @@ javascript <<EOF
 // 空(null)を指定すれば hints や nnoremap を上書きしなくなる
 //    (注: 現バージョンではデフォルト値で上書きされてます。将来修正予定です)
 liberator.globalVariables.hBookmark_shortcuts = {
-    hintsAdd     : 'h',
-    hintsComment : 'H',
-    add          : ['h'],
-    comment      : ['H'],
+    hintsAdd     : 'hb',
+    hintsComment : 'Hb',
+    add          : ['hb'],
+    comment      : ['Hb'],
 };
 
 // コマンドの設定
