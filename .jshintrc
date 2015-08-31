@@ -11,6 +11,7 @@
     "immed"     : false,
     "undef"     : false,
     "unused"    : false,
-    "eqeqeq"    : false
+    "eqeqeq"    : false,
+    "-W010"      : false
 }
    
