@@ -81,6 +81,7 @@ nmap B :bmarks<Space>
 
 qmark c https://cybozulive.com/
 qmark b https://bitbucket.org/
+qmark e https://www.evernote.com/Home.action
 qmark g https://github.com/
 qmark a http://www.amazon.co.jp/%E5%92%8C%E6%9B%B8%E8%A9%B3%E7%B4%B0%E3%82%B5%E3%83%BC%E3%83%81/b/ref=sv_b_0?ie=UTF8&node=124284011
 qmark n https://www.kosho.or.jp/
@@ -88,6 +89,7 @@ qmark z https://www.kosho.or.jp/koshoadmin/
 qmark x https://ext.kosho.jp/extranet/shop/login.do
 qmark t https://twitter.com/
 qmark f https://www.facebook.com/
+qmark G https://plus.google.com/
 
 "便利機能
 "履歴から補完      ^
@@ -281,6 +283,17 @@ nmap D :removeAnotherTabs<CR>
 " タブ順序変更
 nnoremap <C-h> :tabmove! -1<CR>
 nnoremap <C-l> :tabmove! +1<CR>
+
+" タブ移動
+nnoremap h <C-p>
+nnoremap l <C-n>
+
+" default
+" H:履歴を戻る L:履歴を進む (数字指定可能) 
+
+"再定義：履歴
+nnoremap H <C-o>
+nnoremap L <C-i>
 
 ""ちょっと動かない。こんどやる
 ""■THX for
