@@ -72,7 +72,11 @@ nmap B :bmarks<Space>
 "動かず...なぜかgoogle検索が開く
 "map <Leader>ps :<C-u>panorama switch<Space>
 
-"qmark
+"evernote clip
+":command! clip javascript Evernote.Overlay.init(null)
+command clip javascript evernote_doAction()
+
+"==============={qmark}=================================
 "go{a-zA-Z0-9} 開いているタブで、quickmarkのサイトを開く
 "gn{a-zA-Z0-9} 新しいタブで、quickmarkのサイトを開く
 "M{a-zA-Z0-9}  開いているサイトをquickmarkする

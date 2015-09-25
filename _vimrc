@@ -226,6 +226,10 @@ augroup END
 
 "use :PrevimOpen
 
+"-------------------
+"thinca/vim-fontzoom
+"-------------------
+NeoBundle 'thinca/vim-fontzoom'
 
 "-------------
 "lightline.vim
