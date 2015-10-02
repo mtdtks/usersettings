@@ -249,6 +249,13 @@ NeoBundle 'kakkyz81/evervim'
 "初期設定
 let g:evervim_devtoken="S=s71:U=9a45ba:E=1577f0ca7e7:C=150275b7a70:P=1cd:A=en-devtoken:V=2:H=993031ddb0537fe4da8c1635e1b2b431"
 
+"-----------------
+"emmet-vim
+"-----------------
+NeoBundle 'mattn/emmet-vim'
+"default = <C-y>
+let g:user_emmet_leader_key='<c-t>' 
+
 "==================
 "Color_Scheme
 "==================
