@@ -1,6 +1,11 @@
 "==================
 "Global_Settings
 "==================
+
+"コマンドオートコンプリート
+set nocompatible
+set wildmode=list,full
+
 "undo,swap,backupファイルを1か所に保存する
 :set undodir=~/.vim/tmp
 :set directory=~/.vim/tmp
@@ -235,6 +240,14 @@ NeoBundle 'thinca/vim-fontzoom'
 "lightline.vim
 "-------------
 NeoBundle 'itchyny/lightline.vim'
+
+"-----------------
+"kannokanno/previm
+"-----------------
+"参考:http://gk9187.hatenablog.com/entry/2014/12/08/175751
+NeoBundle 'kakkyz81/evervim'
+"初期設定
+let g:evervim_devtoken="S=s71:U=9a45ba:E=1577f0ca7e7:C=150275b7a70:P=1cd:A=en-devtoken:V=2:H=993031ddb0537fe4da8c1635e1b2b431"
 
 "==================
 "Color_Scheme
