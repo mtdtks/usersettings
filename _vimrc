@@ -119,20 +119,11 @@ let g:neocomplete#enable_fuzzy_completion         = 1
 let g:neocomplete#lock_buffer_name_pattern        = '\*ku\*'
 "}}}
 
-"--------------
-"yankaround.vim
-"--------------
-
-"NeoBundle 'LeafCage/yankround.vim'
-
-" yankround.vim {{{
-"nmap p <Plug>(yankround-p)
-"nmap P <Plug>(yankround-P)
-"nmap <C-p> <Plug>(yankround-prev)
-"nmap <C-n> <Plug>(yankround-next)
-"let g:yankround_max_history = 100
-"nnoremap <Leader><C-p> :<C-u>Unite yankround<CR>
-"}}}
+"--------
+"YankRing
+"--------
+"Problem : ':YRShow' not work
+NeoBundle 'YankRing'
 
 "--------
 "NERDTree
@@ -242,19 +233,32 @@ NeoBundle 'thinca/vim-fontzoom'
 NeoBundle 'itchyny/lightline.vim'
 
 "-----------------
-"kannokanno/previm
+"evervim
 "-----------------
 "参考:http://gk9187.hatenablog.com/entry/2014/12/08/175751
 NeoBundle 'kakkyz81/evervim'
 "初期設定
 let g:evervim_devtoken="S=s71:U=9a45ba:E=1577f0ca7e7:C=150275b7a70:P=1cd:A=en-devtoken:V=2:H=993031ddb0537fe4da8c1635e1b2b431"
 
+
+"==============={webCodingTools}=======================
+
+
 "-----------------
 "emmet-vim
 "-----------------
 NeoBundle 'mattn/emmet-vim'
-"default = <C-y>
-let g:user_emmet_leader_key='<c-t>' 
+"default = <C-y>+,
+let g:user_emmet_leader_key='<C-t>'
+
+"---------
+"html5.vim
+"---------
+NeoBundle 'othree/html5.vim'
+"---------------
+"vim-css3-syntax
+"---------------
+NeoBundle 'hail2u/vim-css3-syntax'
 
 "==================
 "Color_Scheme
