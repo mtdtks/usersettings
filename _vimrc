@@ -235,11 +235,30 @@ NeoBundle 'itchyny/lightline.vim'
 "-----------------
 "evervim
 "-----------------
+"win8.1ではpythonがうまく動作しない為動作不良
 "参考:http://gk9187.hatenablog.com/entry/2014/12/08/175751
-NeoBundle 'kakkyz81/evervim'
+"NeoBundle 'kakkyz81/evervim'
 "初期設定
-let g:evervim_devtoken="S=s71:U=9a45ba:E=1577f0ca7e7:C=150275b7a70:P=1cd:A=en-devtoken:V=2:H=993031ddb0537fe4da8c1635e1b2b431"
+"let g:evervim_devtoken="S=s71:U=9a45ba:E=1577f0ca7e7:C=150275b7a70:P=1cd:A=en-devtoken:V=2:H=993031ddb0537fe4da8c1635e1b2b431"
 
+
+"---------
+"vim-gista
+"---------
+NeoBundle 'lambdalisue/vim-gista', {
+     \  'depends': [
+     \     'Shougo/unite.vim',
+     \     'tyru/open-browzer.vim',
+     \]}
+"neobundle.vim (Lazy)
+"NeoBundleLazy 'lambdalisue/vim-gista', {
+"    \ 'autoload': {
+"    \    'commands': ['Gista'],
+"    \    'mappings': '<Plus>(gista-',
+"    \    'unite_sources': 'gista',
+"    \}}
+
+let g:gista#github_user = 'mtdtks'
 
 "==============={webCodingTools}=======================
 
