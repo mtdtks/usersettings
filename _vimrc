@@ -260,6 +260,19 @@ NeoBundle 'lambdalisue/vim-gista', {
 
 let g:gista#github_user = 'mtdtks'
 
+"--------
+"vim-gist
+"--------
+"Require cURL in Win32
+"mattn/webapi-vim
+NeoBundle 'mattn/webapi-vim'
+NeoBundle 'mattn/gist-vim'
+
+let g:github_user = 'mtdtks'
+let g:github_token = 'daca7772064fc77d74d88cf65defdc0ff8b9ae4e'
+let g:gist_curl_options = "-k"
+let g:gist_detect_filetype = 1
+
 "==============={webCodingTools}=======================
 
 
@@ -322,7 +335,7 @@ filetype plugin indent on
 
 " 未インストールのプラグインがある場合、インストールするかどうかを尋ねてくれるようにする設定
 " 毎回聞かれると邪魔な場合もあるので、この設定は任意です。
-NeoBundleCheck
+"NeoBundleCheck
 call neobundle#end()
 "-------------------------
 " End Neobundle Settings.
