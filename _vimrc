@@ -123,8 +123,24 @@ let g:neocomplete#lock_buffer_name_pattern        = '\*ku\*'
 "YankRing
 "--------
 "Problem : ':YRShow' not work
-NeoBundle 'YankRing'
+"Not Succeed Install!
+"NeoBundle 'YankRing'
 
+"-------------
+"yankround.vim
+"-------------
+NeoBundle 'LeafCage/yankround.vim'
+"Usage
+"<C-p>,<C-n>
+nmap p <Plug>(yankround-p)
+nmap P <Plug>(yankround-P)
+nmap gp <Plug>(yankround-gp)
+nmap gP <Plug>(yankround-gP)
+nmap <C-p> <Plug>(yankround-prev)
+nmap <C-n> <Plug>(yankround-next)
+let g:yankround_max_history = 35
+
+"nnoremap <silent>g<C-p> :<C-u>CtrlPYankRound<CR>
 "--------
 "NERDTree
 "--------
@@ -245,11 +261,11 @@ NeoBundle 'itchyny/lightline.vim'
 "---------
 "vim-gista
 "---------
-NeoBundle 'lambdalisue/vim-gista', {
-     \  'depends': [
-     \     'Shougo/unite.vim',
-     \     'tyru/open-browzer.vim',
-     \]}
+"NeoBundle 'lambdalisue/vim-gista', {
+"     \  'depends': [
+"     \     'Shougo/unite.vim',
+"     \     'tyru/open-browzer.vim',
+"     \]}
 "neobundle.vim (Lazy)
 "NeoBundleLazy 'lambdalisue/vim-gista', {
 "    \ 'autoload': {
@@ -258,7 +274,7 @@ NeoBundle 'lambdalisue/vim-gista', {
 "    \    'unite_sources': 'gista',
 "    \}}
 
-let g:gista#github_user = 'mtdtks'
+"let g:gista#github_user = 'mtdtks'
 
 "--------
 "vim-gist
