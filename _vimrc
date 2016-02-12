@@ -129,16 +129,17 @@ let g:neocomplete#lock_buffer_name_pattern        = '\*ku\*'
 "-------------
 "yankround.vim
 "-------------
-NeoBundle 'LeafCage/yankround.vim'
+"なんかインストールするとレジスタ効かなくなる  
+"NeoBundle 'LeafCage/yankround.vim'
 "Usage
 "<C-p>,<C-n>
-nmap p <Plug>(yankround-p)
-nmap P <Plug>(yankround-P)
-nmap gp <Plug>(yankround-gp)
-nmap gP <Plug>(yankround-gP)
-nmap <C-p> <Plug>(yankround-prev)
-nmap <C-n> <Plug>(yankround-next)
-let g:yankround_max_history = 35
+"nmap p <Plug>(yankround-p)
+"nmap P <Plug>(yankround-P)
+"nmap gp <Plug>(yankround-gp)
+"nmap gP <Plug>(yankround-gP)
+"nmap <C-p> <Plug>(yankround-prev)
+"nmap <C-n> <Plug>(yankround-next)
+"let g:yankround_max_history = 35
 
 "nnoremap <silent>g<C-p> :<C-u>CtrlPYankRound<CR>
 "--------

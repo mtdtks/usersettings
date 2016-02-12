@@ -36,6 +36,10 @@ style -name commandline-ime chrome://* #liberator-commandline-command input {ime
 "helpを別タブに表示
 set newtab=all
 
+"hintモードが隠れるのでインデックスを調整
+z-index: 2147483647;
+
+
 "!動かない
 " マウスカーソルを邪魔じゃないとこに飛ばす
 "nnoremap <A-z> :mouse move 200 1<CR>
