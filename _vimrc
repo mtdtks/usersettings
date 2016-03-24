@@ -290,6 +290,21 @@ let g:github_token = 'daca7772064fc77d74d88cf65defdc0ff8b9ae4e'
 let g:gist_curl_options = "-k"
 let g:gist_detect_filetype = 1
 
+"-------
+"TwitVim
+"-------
+NeoBundle 'TwitVim'
+let twitvim_browser_cmd = 'C:\Program Files (x86)\Mozilla Firefox\firefox.exe'
+let twitvim_count = 40
+"このコマンドでつぶやきます。
+"    :PosttoTwitter
+"こちらは、自分のタイムラインを表示します。
+"    :FriendsTwitter
+"タイムラインをリフレッシュ
+"    :RefreshTwitter
+
+
+
 "==============={webCodingTools}=======================
 
 
