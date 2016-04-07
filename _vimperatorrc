@@ -4,6 +4,9 @@
 "General
 "============================
 
+"test中
+":alias si :open illustrator<Space>
+
 beep off
 "アドレスをオートコンプリート
 set complete=l
