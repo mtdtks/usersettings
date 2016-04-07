@@ -4,6 +4,7 @@
 "General
 "============================
 
+
 beep off
 "アドレスをオートコンプリート
 set complete=l
@@ -47,6 +48,10 @@ z-index: 2147483647;
 "let g:win_mouse_map_move_left = "<A-i>"
 
 
+============={search settings}================
+:command! gassearch :tabopen google app script
+:command! vimpsearch :tabopen vimperator
+:command! ilsearch :tabopen illustrator
 
 ============={igonore keys}================
 
@@ -220,6 +225,12 @@ let g:hints_for_embedded_mode="e"
 " caret-hint.js
 let g:caret_hint_xpath = '//*' "'//img|//h1|//h2|//h3|//p|//div|//span':
 let g:caret_hint_key = ''
+
+" alias.js
+"プラグイン読み込み後に実行するコマンド(lazy)を定義
+command! -nargs=+ lazy autocmd VimperatorEnter .* <args>
+:lazy alias aaa t a abc
+
 
 "============================
 "キーバインド
