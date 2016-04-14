@@ -174,10 +174,10 @@ javascript <<EOF
 // 空(null)を指定すれば hints や nnoremap を上書きしなくなる
 //    (注: 現バージョンではデフォルト値で上書きされてます。将来修正予定です)
 liberator.globalVariables.hBookmark_shortcuts = {
-    hintsAdd     : 'hb',
-    hintsComment : 'Hb',
-    add          : ['hb'],
-    comment      : ['Hb'],
+    hintsAdd     : 'Hb',
+    hintsComment : 'Hc',
+    add          : ['Hb'],
+    comment      : ['Hc'],
 };
 
 // コマンドの設定
