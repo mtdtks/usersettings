@@ -4,7 +4,6 @@
 "General
 "============================
 
-
 beep off
 "アドレスをオートコンプリート
 set complete=l

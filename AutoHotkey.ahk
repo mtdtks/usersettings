@@ -15,7 +15,14 @@
 #l::send,{Right}
 #h::send,{Left}
 
-;日本語切り替え
-;ctrl+無変換=半角/全角
-^sc07B::send,{sc029}
-
+;テンキー
+#.::send,{0}
+#`;::send,{1}
+#vkBAsc028::send,{2}  ;win+:
+#]::send,{3}
+#p::send,{4}
+#@::send,{5}
+#[::send,{6}
+#-::send,{7}
+#^::send,{8}
+#\::send,{9}
