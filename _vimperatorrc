@@ -230,6 +230,16 @@ let g:caret_hint_key = ''
 command! -nargs=+ lazy autocmd VimperatorEnter .* <args>
 :lazy alias aaa t a abc
 
+"===========
+" toggler.js
+"===========
+" タブ表示をトグル
+js <<EOM
+liberator.globalVariables.toggler = {
+  tab:  ["set gui=tabs","set gui=notabs"],
+};
+EOM
+map <C-e> :toggle tab<CR>:js TreeStyleTabBrowserAutoHide.toggleMode();<CR>
 
 "============================
 "キーバインド
