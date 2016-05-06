@@ -1,12 +1,8 @@
 ﻿
-;Default vim.ahk settings.
-;#Include  %A_ScriptDir%\vim.ahk
-
-;write to "%HOME%\AutoHotkey.ahk"
-;Setting fot win7
+;Document\AutoHotKey.ahk Setting 
 ;-----
-;#Include  C:\Users\username\vim.ahk
-;#Include  C:\Users\username\AutoHotkey.ahk
+;#Include %A_ScriptDir%\..\vim.ahk
+;#Include %A_ScriptDir%\..\AutoHotkey.ahk
 ;------
 
 ; 十字キー設定
@@ -15,7 +11,7 @@
 #l::send,{Right}
 #h::send,{Left}
 
-;テンキー
+; テンキー
 #.::send,{0}
 #`;::send,{1}
 #vkBAsc028::send,{2}  ;win+:
@@ -26,3 +22,6 @@
 #-::send,{7}
 #^::send,{8}
 #\::send,{9}
+
+; 右クリック
+#z::send,{RButton}

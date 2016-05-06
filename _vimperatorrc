@@ -46,15 +46,18 @@ z-index: 2147483647;
 " win-mouse
 "let g:win_mouse_map_move_left = "<A-i>"
 
+"============={ignorekeys}================
+ignorekeys add feedly\\.com
 
-============={search settings}================
+
+"============={search settings}================
 :command! gassearch :tabopen google app script
 :command! vimpsearch :tabopen vimperator
 :command! ilsearch :tabopen illustrator
 
-============={igonore keys}================
+"============={igonore keys}================
 
-============={commands}================
+"============={commands}================
 
 "bmarks短縮
 nmap B :bmarks<Space>
@@ -104,6 +107,7 @@ qmark f https://www.facebook.com/
 qmark G https://plus.google.com/
 qmark y http://weather.yahoo.co.jp/weather/zoomradar/
 qmark d https://www.dropbox.com/home
+qmark F http://feedly.com/i/latest
 
 "便利機能
 "履歴から補完      ^
@@ -227,8 +231,8 @@ let g:caret_hint_key = ''
 
 " alias.js
 "プラグイン読み込み後に実行するコマンド(lazy)を定義
-command! -nargs=+ lazy autocmd VimperatorEnter .* <args>
-:lazy alias aaa t a abc
+"command! -nargs=+ lazy autocmd VimperatorEnter .* <args>
+":lazy alias aaa t a abc
 
 "===========
 " toggler.js
