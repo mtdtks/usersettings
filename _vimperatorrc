@@ -46,6 +46,11 @@ z-index: 2147483647;
 " win-mouse
 "let g:win_mouse_map_move_left = "<A-i>"
 
+"タブ番号を表示
+"set tabnumbers
+"番号ずれを直す =あっと治らない
+"style -name fix-tabnumbers chrome://* #TabsToolbar { counter-reset: tabnumber !important; }
+
 "============={ignorekeys}================
 ignorekeys add feedly\\.com
 
