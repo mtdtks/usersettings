@@ -4,6 +4,8 @@
 "General
 "============================
 
+
+
 beep off
 "アドレスをオートコンプリート
 set complete=l
@@ -37,7 +39,7 @@ style -name commandline-ime chrome://* #liberator-commandline-command input {ime
 set newtab=all
 
 "hintモードが隠れるのでインデックスを調整
-z-index: 2147483647;
+"z-index: 2147483647;
 
 
 "!動かない
@@ -51,8 +53,14 @@ z-index: 2147483647;
 "番号ずれを直す =あっと治らない
 "style -name fix-tabnumbers chrome://* #TabsToolbar { counter-reset: tabnumber !important; }
 
+
+
 "============={ignorekeys}================
-ignorekeys add feedly\\.com
+ignorekeys add feedly\\.com -except <C-p>,<C-n>,h,l,d
+
+"============={feedsomekeys_3.js}================
+":command! -nargs=+ lazy autocmd VimperatorEnter .* <args>
+":lazy fmaps -u='feedly\\.com/' gh ga gg gl J K a r j k n p o v A m x s b c V ?
 
 
 "============={search settings}================
