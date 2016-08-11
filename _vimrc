@@ -2,6 +2,17 @@
 "Global_Settings
 "==================
 
+
+"Cygwin用設定
+" ダメであった
+if (has("win32") || has ("win64") )
+set viminfo+=n~/.vim/viminfo_win
+else
+set viminfo+=n~/.vim/viminfo
+endif
+
+
+
 "コマンドオートコンプリート
 set nocompatible
 set wildmode=list,full
@@ -40,7 +51,6 @@ augroup HighlightTrailingSpaces
 
   autocmd VimEnter,WinEnter * match TrailingSpaces /\s\+$/
 augroup END
-
 
 "======================================
 "Plugins
@@ -160,15 +170,13 @@ nnoremap <silent><C-e> :NERDTreeToggle<CR>
 NeoBundle 'tpope/vim-surround'
 
 "------------
-"Tern for Vim
+"open-browzer
 "------------
-"重くて使い物にならん
-"- marijnh/tern_for_vim
-"NeoBundle 'marijnh/tern_for_vim', {
-"\ 'build': {
-"\   'others': 'npm install'
-"\   }
-"\}
+NeoBundle 'open-browser.vim'
+" open-browser.vim
+let g:netrw_nogx = 1 " disable netrw's gx mapping.
+nmap gx <Plug>(openbrowser-smart-search)
+vmap gx <Plug>(openbrowser-smart-search)
 
 "===
 "コマンド一覧
@@ -303,7 +311,10 @@ let twitvim_count = 40
 "タイムラインをリフレッシュ
 "    :RefreshTwitter
 
-
+"--------------
+"vimperator.vim
+"--------------
+NeoBundle 'vimperator/vimperator.vim'
 
 "==============={webCodingTools}=======================
 
@@ -323,6 +334,12 @@ NeoBundle 'othree/html5.vim'
 "vim-css3-syntax
 "---------------
 NeoBundle 'hail2u/vim-css3-syntax'
+
+"---------------
+"vim-vimperator
+"vimperator-syntax
+"---------------
+NeoBundle 'superbrothers/vim-vimperator'
 
 "==================
 "Color_Scheme
