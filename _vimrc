@@ -460,6 +460,11 @@ vmap <C-End> <C-End>
 nmap <C-Home> <C-Home>
 vmap <C-Home> <C-Home>
 
+imap <C-h> <Left>
+imap <C-j> <Down>
+imap <C-k> <Up>
+imap <C-l> <Right>
+
 "====================
 "Helpを日本語に
 "====================
