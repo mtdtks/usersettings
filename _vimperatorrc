@@ -136,7 +136,7 @@ qmark F http://feedly.com/i/latest
 "    let evaluateXPath = util.evaluateXPath || buffer.evaluateXPath;
 "    mappings.addUserMap(
 "      [modes.NORMAL],
-"      ['n'],
+"      ['a'],
 "      'Toggle AutoPagerize',
 "      function (motion, count, arg) {
 "        buffer.followLink(
@@ -268,10 +268,6 @@ map <C-e> :toggle tab<CR>:js TreeStyleTabBrowserAutoHide.toggleMode();<CR>
 
 " VisualモードでC-gで選択しているテキストでGoogle検索
 vmap <silent> <C-g> y<Esc><Esc>P
-
-"左右のタブに切り替え
-map a gt
-map q gT
 
 "テキストボックスへ移動をeに
 map e gi<C-a>
