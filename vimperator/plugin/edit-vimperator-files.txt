@@ -97,12 +97,12 @@ let INFO = xml`
         if (lastTime && (new Date() - lastTime < 5 * 1000))
           return lastItems;
         return lastItems = util.Array.flatten([
-          for (dir of dirs)
-            [
-              for (file of io.File(dir).readDirectory(false))
-              if (file.isFile() && /^[\._]vimperatorrc|\.(js|vimp|css)$/.test(file.leafName))
-              [file.path, dir]
-            ]
+          [
+            [file.path, dir]
+            for ([, file] in Iterator(io.File(dir).readDirectory(false)))
+            if (file.isFile() && /^[\._]vimperatorrc|\.(js|vimp|css)$/.test(file.leafName))
+          ]
+          for ([, dir] in Iterator(dirs))
         ]);
       };
     })();
@@ -120,17 +120,17 @@ let INFO = xml`
     'Open vimperator file',
     function (args) {
       if (args['-autosource'])
-        liberator.plugins.auto_source.start(args.literalArg);
+        plugins.auto_source.start(args.literalArg);
       editFileExternally(args.literalArg);
     },
     {
       literal: 0,
       completer: function (context) completion.vimperatorFiles(context),
-      options: (liberator.plugins.auto_source ? [[['-autosource', '-a'], commands.OPTION_NOARG]] : [])
+      options: (plugins.auto_source ? [[['-autosource', '-a'], commands.OPTION_NOARG]] : [])
 
     },
     true
-  );
+    );
 
   // :so コマンドの補完も改良
   commands.get('so').completer = function (context, args) {
