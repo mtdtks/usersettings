@@ -173,10 +173,13 @@ NeoBundle 'tpope/vim-surround'
 "open-browzer
 "------------
 NeoBundle 'open-browser.vim'
-" open-browser.vim
+"カーソル位置のURLを"gx"でブラウザーで開く
 let g:netrw_nogx = 1 " disable netrw's gx mapping.
 nmap gx <Plug>(openbrowser-smart-search)
 vmap gx <Plug>(openbrowser-smart-search)
+
+"htmlをブラウザーで開く
+command! OpenBrowserCurrent execute "OpenBrowser" expand("%:p")
 
 "===
 "コマンド一覧

@@ -27,20 +27,31 @@ FileEncoding, CP65001
 ; [  v  ][  w  ][  x  ]
 ; [  y  ][  z  ]
 ;
+;リファレンス
+;
+;キーリスト
+;https://sites.google.com/site/autohotkeyjp/reference/KeyList
+;
+
+
 
 ;Shift + Numpadは一回以降効かなくなるっぽい
 
 ;ひとまず大文字は置いておく＝3つ押しの問題
 
 NumpadEnter Up::send,{Enter} ;修飾キー1
-NumpadDot Up::send,{Dot} ;修飾キー2
+NumpadDot Up::send,{NumpadDot} ;修飾キー2
 NumpadAdd::LShift ;+＝Shiftキー
+NumpadAdd Up::send,{NumpadAdd}
+
+NumpadEnter Down::TrayTip, Cutkey, testeste, , , 50
 
 ;;        ;;
 ;; Normal ;;
 ;;        ;;
 Numpad7::send,{a}
-NumpadHome::send,{A}
+;NumpadHome::send,{A}
++Numpad7::send,{A}
 Numpad8::send,{i}
 NumpadUp::send,{I}
 Numpad9::send,{u}
@@ -49,7 +60,7 @@ NumpadPgUp::send,{U}
 Numpad4::send,{e}
 NumpadLeft::send,{E}
 Numpad5::send,{o}
-vk0Csc04C::send,{O} ;Numpad5 + Shift
+vk0Csc04C::send,{O} ;Numpad5 + Shift;
 Numpad6::send,{b}
 NumpadRight::send,{B}
 
@@ -90,8 +101,9 @@ NumpadDot & Numpad1::send,{y}
 NumpadDot & Numpad2::send,{z}
 
 
-
-;from
+;参考
+;任意のモードを設定し、そのモードを任意のキーで切り替えるスクリプト - blechmusikの日記
+;http://blechmusik.hatenablog.jp/entry/20120324/1332530553
 ;片手用キーボードHalfKeyboardをAutoHotkeyでエミュレーションする - 情報科学屋さんを目指す人のメモ（FC2ブログ版）
 ;http://did2.blog64.fc2.com/blog-entry-367.html
 
@@ -122,6 +134,11 @@ NumpadMult::
   set_key_layout_mode("NumberAndMove")
 return
 
+;; 大文字モード
+NumpadSub::
+  set_key_layout_mode("Uppercase")
+return
+
 ;; ============================================================
 ;; F12 を押せばプログラムを終了する
 F12::
@@ -150,17 +167,62 @@ return
 		return
 #if
 
-
+#if get_key_layout_mode("Uppercase")
+  ;;        ;;
+  ;; Normal ;;
+  ;;        ;;
+  Numpad7::send,{A}
+  Numpad8::send,{I}
+  Numpad9::send,{U}
+  
+  Numpad4::send,{E}
+  Numpad5::send,{O}
+  Numpad6::send,{B}
+  
+  Numpad1::send,{C}
+  Numpad2::send,{D}
+  Numpad3::send,{F}
+  ;;        ;;
+  ;; +Enter ;;
+  ;;        ;;
+  NumpadEnter & Numpad7::send,{G}
+  NumpadEnter & Numpad8::send,{H}
+  NumpadEnter & Numpad9::send,{J}
+  
+  NumpadEnter & Numpad4::send,{K}
+  NumpadEnter & Numpad5::send,{L}
+  NumpadEnter & Numpad6::send,{M}
+  
+  NumpadEnter & Numpad1::send,{N}
+  NumpadEnter & Numpad2::send,{P}
+  NumpadEnter & Numpad3::send,{Q}
+  
+  ;;        ;;
+  ;; +Dot   ;;
+  ;;        ;;
+  NumpadDot & Numpad7::send,{R}
+  NumpadDot & Numpad8::send,{S}
+  NumpadDot & Numpad9::send,{T}
+  
+  NumpadDot & Numpad4::send,{V}
+  NumpadDot & Numpad5::send,{W}
+  NumpadDot & Numpad6::send,{X}
+  
+  NumpadDot & Numpad1::send,{Y}
+  NumpadDot & Numpad2::send,{Z}
+#if
 
 get_num_for_key_layout_mode(str){
 	return % (str = "NumberAndMove") ? 1 
 		   : (str = "Symbol") ? 2 
+       : (str = "Uppercase") ? 3 
 		   : 0
 }
 
 get_str_for_key_layout_mode(num){
 	return % (num = 1) ? "Number+MoveMode"
 		   : (num = 2) ? "SymbolMode"
+       : (num = 3) ? "UppercaseMode"
 		   : "NormalMode"
 }
 
@@ -178,8 +240,9 @@ set_key_layout_mode(str){
 	key_layout_mode := (key_layout_mode = ret) ? 0 : ret
 	
 	if (0 < ret) {
-		ToolTip, % "-> " get_str_for_key_layout_mode(key_layout_mode)
-		SetTimer, RemoveToolTip, %RemoveToolTip_time%
+		;ToolTip, % "-> " get_str_for_key_layout_mode(key_layout_mode)
+		;SetTimer, RemoveToolTip, %RemoveToolTip_time%
+    TrayTip, title, % get_str_for_key_layout_mode(key_layout_mode), , , %RemoveToolTip_time%
 	}
 
 	return key_layout_mode

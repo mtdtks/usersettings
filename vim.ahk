@@ -1,5 +1,5 @@
 ﻿; Auto-execute section {{{
-; GroupAdd VimGroup, ahk_class Notepad
+GroupAdd VimGroup, ahk_class Notepad
 ; GroupAdd VimGroup, ahk_class WordPadClass
 GroupAdd VimGroup, ahk_class TTeraPadMainForm
 GroupAdd VimGroup, ahk_class CabinetWClass ; Exploler
