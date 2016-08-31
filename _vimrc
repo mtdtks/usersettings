@@ -79,8 +79,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " 以下は必要に応じて追加
 NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/neosnippet'
-" ver.4.1からは以下を追加する
+NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'ujihisa/unite-colorscheme'
 "colorscheme test
@@ -94,6 +93,29 @@ NeoBundle 'vim-jp/vimdoc-ja'
 " vimdoc-ja 表示されない場合は以下を実行
 " "helptags ~/.vim/bundle/vimdoc-ja/doc
 
+
+"---------------------
+"neosnippet
+"---------------------
+NeoBundle 'Shougo/neosnippet'
+" ver.4.1からは以下を追加する
+" <TAB>: completion.
+" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
+
+" Plugin key-mappings.
+imap <C-p>     <Plug>(neosnippet_expand_or_jump)
+smap <C-p>     <Plug>(neosnippet_expand_or_jump)
+
+" SuperTab like snippets behavior.
+" imap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+imap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" For snippet_complete marker.
+if has('conceal')
+  set conceallevel=2 concealcursor=i
+endif
 
 "-------
 "vimproc
@@ -128,6 +150,11 @@ let g:neocomplete#sources#tags#cache_limit_size   = 30000000
 let g:neocomplete#enable_fuzzy_completion         = 1
 let g:neocomplete#lock_buffer_name_pattern        = '\*ku\*'
 "}}}
+
+
+
+
+
 
 "--------
 "YankRing
