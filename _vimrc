@@ -98,14 +98,13 @@ NeoBundle 'vim-jp/vimdoc-ja'
 "neosnippet
 "---------------------
 NeoBundle 'Shougo/neosnippet'
-" ver.4.1からは以下を追加する
 " <TAB>: completion.
 " inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
 " Plugin key-mappings.
-imap <C-p>     <Plug>(neosnippet_expand_or_jump)
-smap <C-p>     <Plug>(neosnippet_expand_or_jump)
+imap <C-;>     <Plug>(neosnippet_expand_or_jump)
+smap <C-;>     <Plug>(neosnippet_expand_or_jump)
 
 " SuperTab like snippets behavior.
 " imap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
