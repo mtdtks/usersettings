@@ -432,7 +432,7 @@ set! keyconfig.main.showAllHistoryKb=!][][
 "viewBookmarkSidebarKb
 set! keyconfig.main.viewBookmarksSidebarKb=!][][
 "mouseScroll
-set! mousewheel_min_line_scroll_amount=200
+set! mousewheel_min_line_scroll_amount=100
 
 "MESSAGES
 javascript <<EOM
