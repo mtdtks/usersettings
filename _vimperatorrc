@@ -431,8 +431,8 @@ set! keyconfig.main.key_webconsole=!][][
 set! keyconfig.main.showAllHistoryKb=!][][
 "viewBookmarkSidebarKb
 set! keyconfig.main.viewBookmarksSidebarKb=!][][
-"mouseScroll
-set! mousewheel_min_line_scroll_amount=100
+"mouse_scroll
+set! mousewheel.default.delta_multiplier_y=100
 
 "MESSAGES
 javascript <<EOM
