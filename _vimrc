@@ -496,6 +496,11 @@ imap <C-l> <Right>
 
 nnoremap <C-o> :<C-u>call append(expand('.'), '')<Cr>j
 
+"==================
+"commands
+"==================
+command! Reconfig source ~/_vimrc
+
 "====================
 "Helpを日本語に
 "====================
