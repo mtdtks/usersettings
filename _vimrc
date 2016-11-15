@@ -494,6 +494,8 @@ imap <C-j> <Down>
 imap <C-k> <Up>
 imap <C-l> <Right>
 
+nnoremap <C-o> :<C-u>call append(expand('.'), '')<Cr>j
+
 "====================
 "Helpを日本語に
 "====================
