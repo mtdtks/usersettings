@@ -2,6 +2,8 @@
 "Global_Settings
 "==================
 
+"vimproc
+let g:vimproc#download_windows_dll = 1
 
 "Cygwin用設定
 " ダメであった
