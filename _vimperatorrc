@@ -25,7 +25,9 @@ set editor='c:\\vim\\gvim.exe -f'
 "Hintmodeをabcで
 "set hintchars=bacdefghijklmnopqrstuvwxyz
 "2列で
-set hintchars=adjlskghrueiwoqpty
+"set hintchars=adjlskghrueiwoqpty
+"アルファベットを中心から
+set hintchars=ghtyvbrufjcneidkxmwoslzpqa
 
 "検索で大文字と小文字を区別しない
 set ignorecase
@@ -298,7 +300,7 @@ cmap <C-v> <S-Insert>
 imap <C-v> <S-Insert>
 cmap <C-c> <C-Insert>
 imap <C-c> <C-Insert>
-"c-aですべて選択　動いた！
+"c-aですべて選択 動いた！
 imap <C-a> <C-a>
 
 "InsertModeでvimキーバインド

@@ -273,8 +273,8 @@ augroup END
 "let g:previm_open_cmd = 'open -a Firefox'
 
 "Need to Add The Pass.
-":command! PrevimFx32 :!firefox "C:\Documents and Settings\Owner\.vim\bundle\previm\preview\index.html"
-:command! PrevimFx :!firefox "C:\Users\matsuoka\.vim\bundle\previm\preview\index.html"
+":command! PrevimFx32 :!firefox "C:\Documents and Settings\%USER%\.vim\bundle\previm\preview\index.html"
+:command! PrevimFx :!firefox "C:\Users\%USER%\.vim\bundle\previm\preview\index.html"
 
 "use :PrevimOpen
 
