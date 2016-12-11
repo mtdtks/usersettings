@@ -1,25 +1,29 @@
-###############
-#vimperator_settings
-###############
-
-/vimperator/info/*
-
-###############
-#.vim_settings
-###############
-
-#フォルダ階層保持
-!.gitkeep
-
-#neobundle保持
-#/.vim/bundle/*
-#!/.vim/bundle/.neobundle/install_info
-#!/.vim/bundle/.neobundle/tags_info
-#!/.vim/.neobundle/doc/*.txt
-#!/.vim/bundle/.NeoBundle.lock
-
-####
-#vim
-####
-.vim/bundle/
-.vim/tmp/
+# まずは全部ignore
+/*
+/.*
+# 管理対象にしたいファイルだけignoreから除外する
+!/.gitconfig
+!/.gitignore
+!/_gvimrc
+!/_vimperatorrc
+!/_vimrc
+!/.zshenv
+!/.zshrc
+!/dot.nodoka
+!/.jshintrc
+!/.bashrc
+!/.vrapperrc
+!/.sqliterc
+!/vimperator/colors/*
+!/vimperator/plugin/*
+!/.vim/tmp/.gitkeep
+# その他
+!/AutoHotKey.ahk
+!/cutkey.ahk
+!/vim.ahk
+# 管理対象のディレクトリ内でも除外したいものはこの下に追加する
+.DS_Store
+.svn
+*.pyc
+.netrwhist
+.log
