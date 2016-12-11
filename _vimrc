@@ -347,6 +347,13 @@ let twitvim_count = 40
 "--------------
 NeoBundle 'vimperator/vimperator.vim'
 
+
+
+"--------------
+"minimap-vim
+"--------------
+NeoBundle 'koron/minimap-vim.git'
+
 "==============={webCodingTools}=======================
 
 

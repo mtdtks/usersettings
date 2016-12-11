@@ -54,6 +54,10 @@ set newtab=all
 "style -name fix-tabnumbers chrome://* #TabsToolbar { counter-reset: tabnumber !important; }
 
 
+"============={TweetDeck}================
+" TweetDeck用の設定
+fmaps -u='tweetdeck\.twitter\.com' r T,t F,f n d p h j k l s ? 0 g0,0
+
 
 "============={ignorekeys}================
 ignorekeys add feedly\\.com -except <C-p>,<C-n>,h,l,d
@@ -64,7 +68,7 @@ ignorekeys add feedly\\.com -except <C-p>,<C-n>,h,l,d
 
 
 "============={search settings}================
-:command! gassearch :tabopen google app script
+:command! gassearch -text :tabopen google app script <text>
 :command! vimpsearch :tabopen vimperator
 :command! ilsearch :tabopen illustrator
 
