@@ -3,8 +3,10 @@
 "============================
 "General
 "============================
-
-
+"ビープ音が消せないのでビジュアルベルにして無効化
+set visualbell
+"hi Bell display: none;
+set visualbellstyle= 
 
 beep off
 "アドレスをオートコンプリート
