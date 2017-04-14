@@ -54,6 +54,14 @@ augroup HighlightTrailingSpaces
   autocmd VimEnter,WinEnter * match TrailingSpaces /\s\+$/
 augroup END
 
+
+"======================================
+"UserCommand
+"======================================
+" XMLを整形
+" :%s/></>\r</g | filetype indent on | setf xml | normal gg=G
+command! XMLindent %s/></>\r</g | filetype indent on | setf xml | normal gg=G
+
 "======================================
 "Plugins
 "======================================
