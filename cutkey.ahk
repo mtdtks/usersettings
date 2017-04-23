@@ -44,7 +44,7 @@ NumpadDot Up::send,{NumpadDot} ;修飾キー2
 NumpadAdd::LShift ;+＝Shiftキー
 NumpadAdd Up::send,{NumpadAdd}
 
-NumpadEnter Down::TrayTip, Cutkey, testeste, , , 50
+; NumpadEnter Down::TrayTip, Cutkey, testeste, , , 50
 
 ;;        ;;
 ;; Normal ;;
