@@ -131,6 +131,7 @@ qmark y http://weather.yahoo.co.jp/weather/zoomradar/
 qmark d https://www.dropbox.com/home
 qmark F http://feedly.com/i/latest
 qmark B https://app.gistboxapp.com/library/my-gists
+qmark h https://translate.google.com/?hl=ja
 
 "便利機能
 "履歴から補完      ^
