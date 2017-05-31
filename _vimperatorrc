@@ -194,16 +194,19 @@ set previouspattern=\bprev|previous\b,prev,^前(の)?ページ,\b前.*,\b←,^<$
 "============================
 " copy.js
 "============================
+
+nmap Y :copy plain<CR>
+
+
 javascript <<EOM
   liberator.globalVariables.copy_templates = [
+    { label: 'plain', value: '%TITLE%\r\n%URL%'},
     { label: 'title', value: '%TITLE%' },
     { label: 'url', value: '%URL%' },
-    { label: 'plain', value: '%TITLE% %URL%' },
     { label: 'anchor', value: '<a href="%URL%">%TITLE%</a>' },
     { label: 'markdown', value: '[%TITLE%](%URL%)' },
   ];
 EOM
-
 
 "============================
 "はてなブックマーク設定
