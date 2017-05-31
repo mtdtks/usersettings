@@ -57,7 +57,6 @@ set newtab=all
 "番号ずれを直す =あっと治らない
 "style -name fix-tabnumbers chrome://* #TabsToolbar { counter-reset: tabnumber !important; }
 
-
 "============={TweetDeck}================
 " TweetDeck用の設定
 fmaps -u='tweetdeck\.twitter\.com' r T,t F,f n d p h j k l s ? 0 g0,0
@@ -282,6 +281,11 @@ liberator.globalVariables.toggler = {
 };
 EOM
 map <C-e> :toggle tab<CR>:js TreeStyleTabBrowserAutoHide.toggleMode();<CR>
+
+"================
+" treestyletab.js
+"================
+noremap <C-t> :treestyle expand<CR>
 
 "============================
 "キーバインド
