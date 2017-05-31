@@ -57,6 +57,17 @@ set newtab=all
 "番号ずれを直す =あっと治らない
 "style -name fix-tabnumbers chrome://* #TabsToolbar { counter-reset: tabnumber !important; }
 
+"============={Commands}================
+":reconfig で_vimperatorrcを再読込み
+:command! reconfig :source! ~/_vimperatorrc
+":vimpeedit で_vimperatorrcをエディターで編集
+:command! vimpedit :edit ~/_vimperatorrc
+
+:command! guimanuon :set gui=menu
+:command! guimanuoff :set gui=nomenu
+:command! guibookmarkon :set gui=bookmarks
+:command! guibookmarkoff :set gui=nobookmarks
+
 "============={TweetDeck}================
 " TweetDeck用の設定
 fmaps -u='tweetdeck\.twitter\.com' r T,t F,f n d p h j k l s ? 0 g0,0
@@ -82,10 +93,6 @@ ignorekeys add feedly\\.com -except <C-p>,<C-n>,h,l,d
 "bmarks短縮
 nmap B :bmarks<Space>
 
-":reconfig で_vimperatorrcを再読込み
-:command! reconfig :source! ~/_vimperatorrc
-":vimpeedit で_vimperatorrcをエディターで編集
-:command! vimpedit :edit ~/_vimperatorrc
 
 "gui
 "初期設定
@@ -94,10 +101,6 @@ nmap B :bmarks<Space>
 "##honten_setting
 "set gui=addons,bookmarks,menu,navigation,tabs
 "command
-:command! guimanuon :set gui=menu
-:command! guimanuoff :set gui=nomenu
-:command! guibookmarkon :set gui=bookmarks
-:command! guibookmarkoff :set gui=nobookmarks
 
 "タブグループを移動
 "動かず...なぜかgoogle検索が開く
@@ -194,9 +197,6 @@ set previouspattern=\bprev|previous\b,prev,^前(の)?ページ,\b前.*,\b←,^<$
 "============================
 " copy.js
 "============================
-
-nmap Y :copy plain<CR>
-
 
 javascript <<EOM
   liberator.globalVariables.copy_templates = [
@@ -390,6 +390,11 @@ nmap pr :panorama remove<Space>
 "" タブグループビューを開く
 "なにかエラーがある
 nmap po <C-S-e>
+
+
+
+"copy.js
+nmap Y :copy plain<CR>
 
 "============================
 " colorscheme
