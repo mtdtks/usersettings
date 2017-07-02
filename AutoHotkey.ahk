@@ -1,9 +1,5 @@
 ﻿
-;Document\AutoHotKey.ahk Setting 
-;-----
-;#Include %A_ScriptDir%\..\vim.ahk
-;#Include %A_ScriptDir%\..\AutoHotkey.ahk
-;------
+#Include %A_ScriptDir%\vim.ahk
 
 ; 十字キー設定
 #k::send,{Up}
