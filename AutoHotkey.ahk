@@ -7,6 +7,12 @@
 #l::send,{Right}
 #h::send,{Left}
 
+; 十字キー設定2
+#n::send,{Down}
+#p::send,{Up}
+#f::send,{Right}
+#b::send,{Left}
+
 ; テンキー
 #.::send,{0}
 #`;::send,{1}

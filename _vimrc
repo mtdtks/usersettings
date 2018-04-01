@@ -2,6 +2,9 @@
 "Global_Settings
 "==================
 
+" for js test
+au FileType javascript map <F4>  :!node %<CR>
+
 "vimproc
 let g:vimproc#download_windows_dll = 1
 
