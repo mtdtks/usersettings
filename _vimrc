@@ -497,13 +497,11 @@ nnoremap <silent><C-e> :NERDTreeToggle<CR>
 "==================
 "Color_Scheme
 "==================
-"hybrid
-"set background=dark
-"colorscheme hybrid
-"syntax on
-
-"cli colorscheme
+" cli vim colorscheme
+set background=dark
 colorscheme desert
+syntax on
+
 
 " solarized
 "NeoBundle 'altercation/vim-colors-solarized'
@@ -623,8 +621,3 @@ nnoremap wb <C-w><<C-w><
 "helptags ~/.vim/doc -error
 "set helplang=ja,en -error
 "たぶんこれいらない
-
-set background=dark
-colorscheme desert
-syntax on
-
