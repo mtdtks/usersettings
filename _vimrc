@@ -1,6 +1,73 @@
+﻿"======================================
+"Plugins
+"======================================
+
+"--------------------------
+" Start Dein Settings.
+"--------------------------
+"AutoCmd setting
+" reset augroup
+augroup MyAutoCmd
+autocmd!
+augroup END
+
+
+
+"""
+" Dein TOML
+" プラグインが実際にインストールされるディレクトリ
+let s:dein_dir = expand('~\vimfiles\dein')
+" dein.vim 本体
+let s:dein_repo_dir = s:dein_dir . '\repos\github.com\Shougo\dein.vim'
+" dein.vim がなければ github から落としてくる
+if &runtimepath !~# '/dein.vim'
+    if !isdirectory(s:dein_repo_dir)
+        execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
+    endif
+    "execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
+    execute 'set runtimepath^=' . s:dein_repo_dir   
+    "変更点
+endif
+" 設定開始
+if dein#load_state(s:dein_dir)
+  call dein#begin(s:dein_dir)
+  " プラグインリストを収めた TOML ファイル
+  " 予め TOML ファイル（後述）を用意しておく
+  let g:rc_dir    = expand('~/.vim/dein')      "ここも .vim → vimfiles に変えた
+  let s:toml      = g:rc_dir . '/dein.toml'
+  let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
+  " TOML を読み込み、キャッシュしておく
+  call dein#load_toml(s:toml,      {'lazy': 0})
+  call dein#load_toml(s:lazy_toml, {'lazy': 1})
+  "call dein#add('Shougo/vimproc.vim', {
+  "    \ 'build': {
+  "    \     'windows' : 'tools\\update-dll-mingw',
+  "    \     'cygwin'  : 'make -f make_cygwin.mak',
+  "    \     'mac'     : 'make -f make_mac.mak',
+  "    \     'linux'   : 'make',
+  "    \     'unix'    : 'gmake',
+  "    \    },
+  "    \ })
+  " 設定終了
+  call dein#end()
+  call dein#save_state()
+endif
+
+
+
+" もし、未インストールものものがあったらインストール
+if dein#check_install()
+  call dein#install()
+endif
+
+
+
+
+
 "==================
 "Global_Settings
 "==================
+
 
 " for js test
 au FileType javascript map <F4>  :!node %<CR>
@@ -16,7 +83,9 @@ else
 set viminfo+=n~/.vim/viminfo
 endif
 
-
+" 最後のヤンクを貼り付ける
+"nnoremap p "0p
+"nnoremap P "0P
 
 "コマンドオートコンプリート
 set nocompatible
@@ -37,7 +106,8 @@ language messages ja_jp.UTF-8
 " GUI版でない場合は、こちらの設定を追加する。
 ":set clipboard+=autoselect
 "cuiでこちらが確実
-set clipboard+=unnamedplus,unnamed
+"set clipboard+=unnamedplus,unnamed
+set clipboard=unnamed,autoselect
 
 "タブ・スペースの表示
 set list
@@ -57,6 +127,12 @@ augroup HighlightTrailingSpaces
   autocmd VimEnter,WinEnter * match TrailingSpaces /\s\+$/
 augroup END
 
+" ハイライトのセッティング
+set ignorecase " 検索パターンに大文字小文字を区別しない
+set smartcase " 検索パターンに大文字を含んでいたら大文字小文字を区別する
+set hlsearch " 検索結果をハイライト
+" ESCキー2度押しでハイライトの切り替え
+nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
 
 "======================================
 "UserCommand
@@ -64,44 +140,27 @@ augroup END
 " XMLを整形
 " :%s/></>\r</g | filetype indent on | setf xml | normal gg=G
 command! XMLindent %s/></>\r</g | filetype indent on | setf xml | normal gg=G
+command! Reconfig source ~/_vimrc | source $MYGVIMRC
+command! Vimrc edit $MYVIMRC
+command! Gvimrc edit $MYGVIMRC
+
+
 
 "======================================
-"Plugins
+" Plugins
 "======================================
-"--------------------------
-" Start Neobundle Settings.
-"--------------------------
-" Note: Skip initialization for vim-tiny or vim-small.
-if !1 | finish | endif
 
-if has('vim_starting')
-  if &compatible
-    set nocompatible               " Be iMproved
-  endif
-
-  " Required:
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
-
-" Required:
-call neobundle#begin(expand('~/.vim/bundle/'))
-
-" Let NeoBundle manage NeoBundle
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-" 以下は必要に応じて追加
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/neocomplcache'
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'ujihisa/unite-colorscheme'
+"NeoBundle 'Shougo/unite.vim'
+"NeoBundle 'Shougo/neocomplcache'
+"NeoBundle 'Shougo/neosnippet-snippets'
+"NeoBundle 'ujihisa/unite-colorscheme'
 "colorscheme test
 ":Unite colorscheme -auto-preview
 
 "---------------------
 "vim日本語ドキュメント
 "---------------------
-NeoBundle 'vim-jp/vimdoc-ja'
+"NeoBundle 'vim-jp/vimdoc-ja'
 " Use = :h
 " vimdoc-ja 表示されない場合は以下を実行
 " "helptags ~/.vim/bundle/vimdoc-ja/doc
@@ -110,9 +169,11 @@ NeoBundle 'vim-jp/vimdoc-ja'
 "---------------------
 "neosnippet
 "---------------------
-NeoBundle 'Shougo/neosnippet'
+" Shougo/neosnippet
+" Shougo/neocomplcache
+" Shougo/neosnippet-snippets
 " <TAB>: completion.
-" inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
 " Plugin key-mappings.
@@ -120,7 +181,7 @@ imap <C-;>     <Plug>(neosnippet_expand_or_jump)
 smap <C-;>     <Plug>(neosnippet_expand_or_jump)
 
 " SuperTab like snippets behavior.
-" imap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+imap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
 imap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 smap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
@@ -143,61 +204,108 @@ endif
 "-----------
 "neocomplete
 "-----------
-if has('lua')
-  NeoBundleLazy 'Shougo/neocomplete.vim', {
-    \ 'depends' : 'Shougo/vimproc',
-    \ 'autoload' : { 'insert' : 1,}
-    \ }
+" Shougo/neocomplete
+
+" Note: This option must be set in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
+" Disable AutoComplPop.
+let g:acp_enableAtStartup = 0
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
+" Use smartcase.
+let g:neocomplete#enable_smart_case = 1
+" Set minimum syntax keyword length.
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+
+" Define dictionary.
+let g:neocomplete#sources#dictionary#dictionaries = {
+    \ 'default' : '',
+    \ 'vimshell' : $HOME.'/.vimshell_hist',
+    \ 'scheme' : $HOME.'/.gosh_completions'
+        \ }
+
+" Define keyword.
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
 endif
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
-" neocomplete {{{
-let g:neocomplete#enable_at_startup               = 1
-let g:neocomplete#auto_completion_start_length    = 3
-let g:neocomplete#enable_ignore_case              = 1
-let g:neocomplete#enable_smart_case               = 1
-let g:neocomplete#enable_camel_case               = 1
-let g:neocomplete#use_vimproc                     = 1
-let g:neocomplete#sources#buffer#cache_limit_size = 1000000
-let g:neocomplete#sources#tags#cache_limit_size   = 30000000
-let g:neocomplete#enable_fuzzy_completion         = 1
-let g:neocomplete#lock_buffer_name_pattern        = '\*ku\*'
-"}}}
+" Plugin key-mappings.
+inoremap <expr><C-g>     neocomplete#undo_completion()
+inoremap <expr><C-l>     neocomplete#complete_common_string()
+
+" Recommended key-mappings.
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+  " For no inserting <CR> key.
+  "return pumvisible() ? "\<C-y>" : "\<CR>"
+endfunction
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+" Close popup by <Space>.
+"inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
+
+" AutoComplPop like behavior.
+"let g:neocomplete#enable_auto_select = 1
+
+" Shell like behavior(not recommended).
+"set completeopt+=longest
+"let g:neocomplete#enable_auto_select = 1
+"let g:neocomplete#disable_auto_complete = 1
+"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
+
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" Enable heavy omni completion.
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+"let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+"let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+"let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+
+" For perlomni.vim setting.
+" https://github.com/c9s/perlomni.vim
+let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
 
 
-
-
-
-"--------
-"YankRing
-"--------
-"Problem : ':YRShow' not work
-"Not Succeed Install!
-"NeoBundle 'YankRing'
 
 "-------------
 "yankround.vim
 "-------------
 "なんかインストールするとレジスタ効かなくなる  
-"NeoBundle 'LeafCage/yankround.vim'
-"Usage
-"<C-p>,<C-n>
-"nmap p <Plug>(yankround-p)
-"nmap P <Plug>(yankround-P)
-"nmap gp <Plug>(yankround-gp)
-"nmap gP <Plug>(yankround-gP)
+" yankround.vim {{{
+"" キーマップ
+nmap p <Plug>(yankround-p)
+nmap P <Plug>(yankround-P)
 "nmap <C-p> <Plug>(yankround-prev)
-"nmap <C-n> <Plug>(yankround-next)
-"let g:yankround_max_history = 35
+nmap <C-n> <Plug>(yankround-next)
+"" 履歴取得数
+let g:yankround_max_history = 50
+""履歴一覧(kien/ctrlp.vim)
+nnoremap <C-p>h :<C-u>CtrlPYankRound<CR>
+" }}}
+"yankroundが有効でないときは通常動作する
+nnoremap <silent><SID>(ctrlp) :<C-u>CtrlP<CR>
+nmap <expr><C-p> yankround#is_active() ? "\<Plug>(yankround-prev)" : "<SID>(ctrlp)"
 
-"nnoremap <silent>g<C-p> :<C-u>CtrlPYankRound<CR>
+
 "--------
 "NERDTree
 "--------
 " ファイルをtree表示してくれる
 
 "- 'scrooloose/nerdtree'
-NeoBundle 'scrooloose/nerdtree'
 ":NERDTreeでツリー起動
 ":NERDTreeToggleでトグル
 "<C-e>でトグル
@@ -206,19 +314,19 @@ nnoremap <silent><C-e> :NERDTreeToggle<CR>
 "------------
 "vim_surround
 "------------
-NeoBundle 'tpope/vim-surround'
+"NeoBundle 'tpope/vim-surround'
 
 "------------
 "open-browzer
 "------------
-NeoBundle 'open-browser.vim'
+"NeoBundle 'open-browser.vim'
 "カーソル位置のURLを"gx"でブラウザーで開く
-let g:netrw_nogx = 1 " disable netrw's gx mapping.
-nmap gx <Plug>(openbrowser-smart-search)
-vmap gx <Plug>(openbrowser-smart-search)
+"let g:netrw_nogx = 1 " disable netrw's gx mapping.
+"nmap gx <Plug>(openbrowser-smart-search)
+"vmap gx <Plug>(openbrowser-smart-search)
 
 "htmlをブラウザーで開く
-command! OpenBrowserCurrent execute "OpenBrowser" expand("%:p")
+"command! OpenBrowserCurrent execute "OpenBrowser" expand("%:p")
 
 "===
 "コマンド一覧
@@ -232,7 +340,7 @@ command! OpenBrowserCurrent execute "OpenBrowser" expand("%:p")
 "---------
 "syntastic
 "---------
-NeoBundle 'scrooloose/syntastic.git'
+"NeoBundle 'scrooloose/syntastic.git'
 ":helptagsを実行する
 "consoleで npm install -g jshint
 
@@ -241,63 +349,59 @@ NeoBundle 'scrooloose/syntastic.git'
 ""    \ 'active_filetypes': [],
 ""    \ 'passive_filetypes': ['html'] }
 
-let g:syntastic_check_on_open=0
-let g:syntastic_check_on_save=1
-let g:syntastic_auto_loc_list=1
-let g:syntastic_loc_list_height=6
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_javascript_checkers = ['jshint']
-let g:syntastic_mode_map = {
-      \ 'mode': 'active',
-      \ 'active_filetypes': ['javascript'],
-      \ 'passive_filetypes': []
-      \ }
-let g:syntastic_enable_signs=1
-let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='⚠'
-
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+"let g:syntastic_check_on_open=0
+"let g:syntastic_check_on_save=1
+"let g:syntastic_auto_loc_list=1
+"let g:syntastic_loc_list_height=6
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+"let g:syntastic_javascript_checkers = ['jshint']
+"let g:syntastic_mode_map = {
+"      \ 'mode': 'active',
+"      \ 'active_filetypes': ['javascript'],
+"      \ 'passive_filetypes': []
+"      \ }
+"let g:syntastic_enable_signs=1
+"let g:syntastic_error_symbol='✗'
+"let g:syntastic_warning_symbol='⚠'
+"
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+"
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
 
 "-----------------
 "kannokanno/previm
 "-----------------
-NeoBundle 'kannokanno/previm'
-NeoBundle 'tyru/open-browser.vim'
+"NeoBundle 'kannokanno/previm'
+"NeoBundle 'tyru/open-browser.vim'
 " リアルタイムにプレビューする
-let g:previm_enable_realtime = 1
-let g:previm_open_cmd = ''
+"let g:previm_enable_realtime = 1
+"let g:previm_open_cmd = ''
 ".md設定
-augroup PrevimSettings
-    autocmd!
-    autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
-augroup END
+"augroup PrevimSettings
+"    autocmd!
+"    autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+"augroup END
 "au BufRead,BufNewFile *.md set filetype=markdown
 "let g:previm_open_cmd = 'open -a Firefox'
 
 "Need to Add The Pass.
 ":command! PrevimFx32 :!firefox "C:\Documents and Settings\%USER%\.vim\bundle\previm\preview\index.html"
-:command! PrevimFx :!firefox "C:\Users\%USER%\.vim\bundle\previm\preview\index.html"
+":command! PrevimFx :!firefox "C:\Users\%USER%\.vim\bundle\previm\preview\index.html"
 
 "use :PrevimOpen
 
-"-------------------
-"thinca/vim-fontzoom
-"-------------------
-NeoBundle 'thinca/vim-fontzoom'
 
 "-------------
 "lightline.vim
 "-------------
-NeoBundle 'itchyny/lightline.vim'
+"NeoBundle 'itchyny/lightline.vim'
 
 "-----------------
 "evervim
@@ -332,20 +436,20 @@ NeoBundle 'itchyny/lightline.vim'
 "--------
 "Require cURL in Win32
 "mattn/webapi-vim
-NeoBundle 'mattn/webapi-vim'
-NeoBundle 'mattn/gist-vim'
-
-let g:github_user = 'mtdtks'
-let g:github_token = 'daca7772064fc77d74d88cf65defdc0ff8b9ae4e'
-let g:gist_curl_options = "-k"
-let g:gist_detect_filetype = 1
+"NeoBundle 'mattn/webapi-vim'
+"NeoBundle 'mattn/gist-vim'
+"
+"let g:github_user = 'mtdtks'
+"let g:github_token = 'daca7772064fc77d74d88cf65defdc0ff8b9ae4e'
+"let g:gist_curl_options = "-k"
+"let g:gist_detect_filetype = 1
 
 "-------
 "TwitVim
 "-------
-NeoBundle 'TwitVim'
-let twitvim_browser_cmd = 'C:\Program Files (x86)\Mozilla Firefox\firefox.exe'
-let twitvim_count = 40
+"NeoBundle 'TwitVim'
+"let twitvim_browser_cmd = 'C:\Program Files (x86)\Mozilla Firefox\firefox.exe'
+"let twitvim_count = 40
 "このコマンドでつぶやきます。
 "    :PosttoTwitter
 "こちらは、自分のタイムラインを表示します。
@@ -356,14 +460,14 @@ let twitvim_count = 40
 "--------------
 "vimperator.vim
 "--------------
-NeoBundle 'vimperator/vimperator.vim'
+"NeoBundle 'vimperator/vimperator.vim'
 
 
 
 "--------------
 "minimap-vim
 "--------------
-NeoBundle 'koron/minimap-vim.git'
+"NeoBundle 'koron/minimap-vim.git'
 
 "==============={webCodingTools}=======================
 
@@ -371,49 +475,48 @@ NeoBundle 'koron/minimap-vim.git'
 "-----------------
 "emmet-vim
 "-----------------
-NeoBundle 'mattn/emmet-vim'
+"NeoBundle 'mattn/emmet-vim'
 "default = <C-y>+,
-let g:user_emmet_leader_key='<C-t>'
+"let g:user_emmet_leader_key='<C-t>'
 
 "---------
 "html5.vim
 "---------
-NeoBundle 'othree/html5.vim'
+"NeoBundle 'othree/html5.vim'
 "---------------
 "vim-css3-syntax
 "---------------
-NeoBundle 'hail2u/vim-css3-syntax'
+"NeoBundle 'hail2u/vim-css3-syntax'
 
 "---------------
 "vim-vimperator
 "vimperator-syntax
 "---------------
-NeoBundle 'superbrothers/vim-vimperator'
+"NeoBundle 'superbrothers/vim-vimperator'
 
 "==================
 "Color_Scheme
 "==================
 "hybrid
-"!!manual Install!!
-"git clone "https://github.com/w0ng/vim-hybrid.git" ->.vim/bundle/vim-hybrid
-"NeoBundle 'w0ng/vim-hybrid'
+"set background=dark
+"colorscheme hybrid
+"syntax on
+
+"cli colorscheme
+colorscheme desert
 
 " solarized
-NeoBundle 'altercation/vim-colors-solarized'
+"NeoBundle 'altercation/vim-colors-solarized'
 " jellybeans
-NeoBundle 'nanotech/jellybeans.vim'
+"NeoBundle 'nanotech/jellybeans.vim'
 " molokai
-NeoBundle 'tomasr/molokai'
+"NeoBundle 'tomasr/molokai'
 " mustang
-NeoBundle 'croaker/mustang-vim'
+"NeoBundle 'croaker/mustang-vim'
 "vim-tomorrow-theme
-NeoBundle 'chriskempson/vim-tomorrow-theme'
+"NeoBundle 'chriskempson/vim-tomorrow-theme'
 
 "set t_Co=256
-syntax on
-set background=dark
-colorscheme hybrid
-
 
 "  set t_Co=256
 "  set t_Sf=[3%dm
@@ -431,13 +534,6 @@ colorscheme hybrid
 " Required:
 filetype plugin indent on
 
-" 未インストールのプラグインがある場合、インストールするかどうかを尋ねてくれるようにする設定
-" 毎回聞かれると邪魔な場合もあるので、この設定は任意です。
-"NeoBundleCheck
-call neobundle#end()
-"-------------------------
-" End Neobundle Settings.
-"-------------------------
 
 "==================
 "view_settings
@@ -516,10 +612,10 @@ imap <C-l> <Right>
 
 nnoremap <C-o> :<C-u>call append(expand('.'), '')<Cr>j
 
-"==================
-"commands
-"==================
-command! Reconfig source ~/_vimrc
+nnoremap wu <C-w>+<C-w>+
+nnoremap wd <C-w>-<C-w>-
+nnoremap wf <C-w>><C-w>>
+nnoremap wb <C-w><<C-w><
 
 "====================
 "Helpを日本語に
@@ -527,4 +623,8 @@ command! Reconfig source ~/_vimrc
 "helptags ~/.vim/doc -error
 "set helplang=ja,en -error
 "たぶんこれいらない
+
+set background=dark
+colorscheme desert
+syntax on
 

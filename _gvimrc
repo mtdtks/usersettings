@@ -3,11 +3,24 @@
 "======================
 
 " 縦幅　デフォルトは24
-set lines=40
+set lines=50
 " 横幅　デフォルトは80
-set columns=120
+set columns=180
 
-let g:hybrid_use_iTerm_colors = 1
+"yankをクリップボードへ保存する
+" GUI版vimエディタで、この機能を有効にするなら、この設定を追加する。
+":set guioptions+=a
+" GUI版でない場合は、こちらの設定を追加する。
+":set clipboard+=autoselect
+"cuiでこちらが確実
+set clipboard+=unnamedplus,unnamed
+
+"autocmd ColorScheme desert
+
+
+set t_Co=256
+"let g:hybrid_use_iTerm_colors = 1
+set background=dark
 colorscheme hybrid
 syntax on
 
