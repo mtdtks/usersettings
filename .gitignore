@@ -17,13 +17,12 @@
 !/vimperator/colors/*
 !/vimperator/plugin/*
 !/.vim/tmp/.gitkeep
+!/.vim/dein/dein.toml
+!/.vim/dein/dein_lazy.toml
 # その他
 !/AutoHotKey.ahk
 !/cutkey.ahk
 !/vim.ahk
-# dein.vimの設定ファイル
-!/.vim/dein/dein.toml
-!/.vim/dein/dein_lazy.toml
 
 
 # 管理対象のディレクトリ内でも除外したいものはこの下に追加する

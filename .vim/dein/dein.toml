@@ -1,0 +1,49 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+
+[[plugins]] # カーソル位置のコンテキストに合わせてftを切り替える
+repo = 'osyo-manga/vim-precious'
+depends = ['context_filetype.vim']
+
+[[plugins]] # カーソル位置のコンテキストのftを判定するライブラリ
+repo = 'Shougo/context_filetype.vim'
+
+[[plugins]] # toml syntax
+repo = 'cespare/vim-toml'
+on_ft = 'toml'
+
+[[plugins]] # toml syntax
+repo = 'scrooloose/nerdtree'
+
+[[plugins]] # colorscheme
+repo = 'w0ng/vim-hybrid'
+
+[[plugins]] # フォントサイズを変更するやつ
+repo = 'thinca/vim-fontzoom'
+
+[[plugins]] # ミニマップを表示
+repo = 'hisaknown/nanomap.vim'
+
+# neocomplete/snippet
+[[plugins]]
+repo = 'Shougo/neocomplcache.vim'
+
+[[plugins]]
+repo = 'Shougo/neosnippet.vim'
+
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+
+[[plugins]]
+repo = 'Shougo/neocomplete.vim'
+
+# ----
+
+[[plugins]] #ヤンク履歴管理
+repo = 'LeafCage/yankround.vim'
+
+[[plugins]]
+repo = 'kien/ctrlp.vim'
