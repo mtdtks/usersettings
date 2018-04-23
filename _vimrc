@@ -16,11 +16,11 @@ augroup END
 """
 " Dein TOML
 " プラグインが実際にインストールされるディレクトリ
-let s:dein_dir = expand('~\vimfiles\dein')
+let s:dein_dir = expand('~\.vim\dein')
 " dein.vim 本体
 let s:dein_repo_dir = s:dein_dir . '\repos\github.com\Shougo\dein.vim'
 " dein.vim がなければ github から落としてくる
-if &runtimepath !~# '/dein.vim'
+if &runtimepath !~# '\dein.vim'
     if !isdirectory(s:dein_repo_dir)
         execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
     endif
@@ -33,26 +33,25 @@ if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir)
   " プラグインリストを収めた TOML ファイル
   " 予め TOML ファイル（後述）を用意しておく
-  let g:rc_dir    = expand('~/.vim/dein')      "ここも .vim → vimfiles に変えた
-  let s:toml      = g:rc_dir . '/dein.toml'
-  let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
+  let g:rc_dir    = expand('~\.vim\dein')      "ここも .vim → vimfiles に変えた
+  let s:toml      = g:rc_dir . '\dein.toml'
+  let s:lazy_toml = g:rc_dir . '\dein_lazy.toml'
   " TOML を読み込み、キャッシュしておく
   call dein#load_toml(s:toml,      {'lazy': 0})
   call dein#load_toml(s:lazy_toml, {'lazy': 1})
-  "call dein#add('Shougo/vimproc.vim', {
-  "    \ 'build': {
-  "    \     'windows' : 'tools\\update-dll-mingw',
-  "    \     'cygwin'  : 'make -f make_cygwin.mak',
-  "    \     'mac'     : 'make -f make_mac.mak',
-  "    \     'linux'   : 'make',
-  "    \     'unix'    : 'gmake',
-  "    \    },
-  "    \ })
+ " call dein#add('Shougo/vimproc.vim', {
+ "     \ 'build': {
+ "     \     'windows' : 'tools\\update-dll-mingw',
+ "     \     'cygwin'  : 'make -f make_cygwin.mak',
+ "     \     'mac'     : 'make -f make_mac.mak',
+ "     \     'linux'   : 'make',
+ "     \     'unix'    : 'gmake',
+ "     \    },
+ "     \ })
   " 設定終了
   call dein#end()
   call dein#save_state()
 endif
-
 
 
 " もし、未インストールものものがあったらインストール
@@ -67,6 +66,9 @@ endif
 "==================
 "Global_Settings
 "==================
+
+"vimproc auto download option
+let g:vimproc#download_windows_dll = 1
 
 
 " for js test

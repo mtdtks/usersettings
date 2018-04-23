@@ -1,4 +1,4 @@
-# まずは全部ignore
+﻿# まずは全部ignore
 /*
 /.*
 # 管理対象にしたいファイルだけignoreから除外する
@@ -21,6 +21,11 @@
 !/AutoHotKey.ahk
 !/cutkey.ahk
 !/vim.ahk
+# dein.vimの設定ファイル
+!/.vim/dein/dein.toml
+!/.vim/dein/dein_lazy.toml
+
+
 # 管理対象のディレクトリ内でも除外したいものはこの下に追加する
 .DS_Store
 .svn
